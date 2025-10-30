@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-kerala-water via-blue-600 to-kerala-green">
       <!-- Kerala Hero Image -->
-      <img src="assets/images/kerala.jpg" alt="Kerala Backwaters" class="absolute inset-0 w-full h-full object-cover opacity-50" style="z-index:1;" />
+      <div class="absolute inset-0 bg-gradient-to-br from-kerala-water via-blue-600 to-kerala-green opacity-80"></div>
 
       <!-- Animated Background Elements -->
       <div class="absolute inset-0 z-2">
