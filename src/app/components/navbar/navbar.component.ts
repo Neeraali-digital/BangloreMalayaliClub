@@ -27,45 +27,82 @@ import { RouterModule } from '@angular/router';
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center space-x-8">
-            <a routerLink="/" 
+            <a routerLink="/"
                class="nav-link font-medium transition-colors duration-300"
                [class.text-white]="!isScrolled"
                [class.text-gray-700]="isScrolled"
                [class.hover:text-kerala-gold]="isScrolled"
                [class.hover:text-yellow-300]="!isScrolled">
-              Home
+              HOME
             </a>
-            <a routerLink="/about" 
+
+            <!-- EVENTS & PROGRAMS Dropdown -->
+            <div class="relative group">
+              <button class="nav-link font-medium transition-colors duration-300 flex items-center"
+                      [class.text-white]="!isScrolled"
+                      [class.text-gray-700]="isScrolled"
+                      [class.hover:text-kerala-gold]="isScrolled"
+                      [class.hover:text-yellow-300]="!isScrolled">
+                EVENTS & PROGRAMS
+                <span class="material-icons text-sm ml-1">expand_more</span>
+              </button>
+              <div class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <a routerLink="/events/upcoming" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">UP COMING EVENTS</a>
+                <a routerLink="/events/past" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">PAST EVENTS</a>
+                <a routerLink="/events/charity" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">CHARITY & BLOOD DONATION</a>
+                <a routerLink="/events/sports" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">SPORTS</a>
+              </div>
+            </div>
+
+            <a routerLink="/well-wisher"
                class="nav-link font-medium transition-colors duration-300"
                [class.text-white]="!isScrolled"
                [class.text-gray-700]="isScrolled"
                [class.hover:text-kerala-gold]="isScrolled"
                [class.hover:text-yellow-300]="!isScrolled">
-              About
+              WELL WISHER & SUPPORTERS
             </a>
-            <a routerLink="/events" 
+
+            <!-- MEMBERSHIP Dropdown -->
+            <div class="relative group">
+              <button class="nav-link font-medium transition-colors duration-300 flex items-center"
+                      [class.text-white]="!isScrolled"
+                      [class.text-gray-700]="isScrolled"
+                      [class.hover:text-kerala-gold]="isScrolled"
+                      [class.hover:text-yellow-300]="!isScrolled">
+                MEMBERSHIP
+                <span class="material-icons text-sm ml-1">expand_more</span>
+              </button>
+              <div class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <a routerLink="/membership/form" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">MEMBERSHIP FORM</a>
+                <a routerLink="/membership/existing" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">EXISTING MEMBERS</a>
+              </div>
+            </div>
+
+            <!-- COMMITTEE Dropdown -->
+            <div class="relative group">
+              <button class="nav-link font-medium transition-colors duration-300 flex items-center"
+                      [class.text-white]="!isScrolled"
+                      [class.text-gray-700]="isScrolled"
+                      [class.hover:text-kerala-gold]="isScrolled"
+                      [class.hover:text-yellow-300]="!isScrolled">
+                COMMITTEE
+                <span class="material-icons text-sm ml-1">expand_more</span>
+              </button>
+              <div class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <a routerLink="/committee/executive" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">EXECUTIVE COMMITTEE</a>
+                <a routerLink="/committee/sub" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">SUB COMMITTEE</a>
+                <a routerLink="/committee/past" class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300">PAST COMMITTEE</a>
+              </div>
+            </div>
+
+            <a routerLink="/contact"
                class="nav-link font-medium transition-colors duration-300"
                [class.text-white]="!isScrolled"
                [class.text-gray-700]="isScrolled"
                [class.hover:text-kerala-gold]="isScrolled"
                [class.hover:text-yellow-300]="!isScrolled">
-              Events
-            </a>
-            <a routerLink="/gallery" 
-               class="nav-link font-medium transition-colors duration-300"
-               [class.text-white]="!isScrolled"
-               [class.text-gray-700]="isScrolled"
-               [class.hover:text-kerala-gold]="isScrolled"
-               [class.hover:text-yellow-300]="!isScrolled">
-              Gallery
-            </a>
-            <a routerLink="/contact" 
-               class="nav-link font-medium transition-colors duration-300"
-               [class.text-white]="!isScrolled"
-               [class.text-gray-700]="isScrolled"
-               [class.hover:text-kerala-gold]="isScrolled"
-               [class.hover:text-yellow-300]="!isScrolled">
-              Contact
+              CONTACT US
             </a>
           </div>
 
@@ -83,34 +120,68 @@ import { RouterModule } from '@angular/router';
         <!-- Mobile Menu -->
         <div class="md:hidden transition-all duration-300 overflow-hidden"
              [class.max-h-0]="!isMobileMenuOpen"
-             [class.max-h-96]="isMobileMenuOpen"
+             [class.max-h-screen]="isMobileMenuOpen"
              [class.bg-white]="isScrolled || isMobileMenuOpen"
              [class.shadow-lg]="isMobileMenuOpen">
           <div class="py-4 space-y-2">
-            <a routerLink="/" 
+            <a routerLink="/"
                class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
                (click)="closeMobileMenu()">
-              Home
+              HOME
             </a>
-            <a routerLink="/about" 
+
+            <!-- Mobile EVENTS & PROGRAMS -->
+            <div>
+              <button class="flex items-center justify-between w-full px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
+                      (click)="toggleMobileDropdown('events')">
+                EVENTS & PROGRAMS
+                <span class="material-icons text-sm">{{ mobileDropdowns['events'] ? 'expand_less' : 'expand_more' }}</span>
+              </button>
+              <div class="ml-4 space-y-1" [class.hidden]="!mobileDropdowns['events']">
+                <a routerLink="/events/upcoming" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">UP COMING EVENTS</a>
+                <a routerLink="/events/past" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">PAST EVENTS</a>
+                <a routerLink="/events/charity" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">CHARITY & BLOOD DONATION</a>
+                <a routerLink="/events/sports" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">SPORTS</a>
+              </div>
+            </div>
+
+            <a routerLink="/well-wisher"
                class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
                (click)="closeMobileMenu()">
-              About
+              WELL WISHER & SUPPORTERS
             </a>
-            <a routerLink="/events" 
+
+            <!-- Mobile MEMBERSHIP -->
+            <div>
+              <button class="flex items-center justify-between w-full px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
+                      (click)="toggleMobileDropdown('membership')">
+                MEMBERSHIP
+                <span class="material-icons text-sm">{{ mobileDropdowns['membership'] ? 'expand_less' : 'expand_more' }}</span>
+              </button>
+              <div class="ml-4 space-y-1" [class.hidden]="!mobileDropdowns['membership']">
+                <a routerLink="/membership/form" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">MEMBERSHIP FORM</a>
+                <a routerLink="/membership/existing" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">EXISTING MEMBERS</a>
+              </div>
+            </div>
+
+            <!-- Mobile COMMITTEE -->
+            <div>
+              <button class="flex items-center justify-between w-full px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
+                      (click)="toggleMobileDropdown('committee')">
+                COMMITTEE
+                <span class="material-icons text-sm">{{ mobileDropdowns['committee'] ? 'expand_less' : 'expand_more' }}</span>
+              </button>
+              <div class="ml-4 space-y-1" [class.hidden]="!mobileDropdowns['committee']">
+                <a routerLink="/committee/executive" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">EXECUTIVE COMMITTEE</a>
+                <a routerLink="/committee/sub" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">SUB COMMITTEE</a>
+                <a routerLink="/committee/past" class="block px-4 py-2 text-gray-600 hover:bg-kerala-gold hover:text-white transition-colors duration-300" (click)="closeMobileMenu()">PAST COMMITTEE</a>
+              </div>
+            </div>
+
+            <a routerLink="/contact"
                class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
                (click)="closeMobileMenu()">
-              Events
-            </a>
-            <a routerLink="/gallery" 
-               class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
-               (click)="closeMobileMenu()">
-              Gallery
-            </a>
-            <a routerLink="/contact" 
-               class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
-               (click)="closeMobileMenu()">
-              Contact
+              CONTACT US
             </a>
           </div>
         </div>
@@ -122,6 +193,11 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit {
   isScrolled = false;
   isMobileMenuOpen = false;
+  mobileDropdowns: { [key: string]: boolean } = {
+    events: false,
+    membership: false,
+    committee: false
+  };
 
   ngOnInit() {
     this.checkScroll();
@@ -142,5 +218,13 @@ export class NavbarComponent implements OnInit {
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
+    // Reset all mobile dropdowns when closing menu
+    Object.keys(this.mobileDropdowns).forEach(key => {
+      this.mobileDropdowns[key] = false;
+    });
+  }
+
+  toggleMobileDropdown(dropdown: string) {
+    this.mobileDropdowns[dropdown] = !this.mobileDropdowns[dropdown];
   }
 }
