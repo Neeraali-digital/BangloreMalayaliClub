@@ -54,7 +54,7 @@ import { RouterModule } from '@angular/router';
               </div>
             </div>
 
-            <a routerLink="/well-wisher"
+            <a routerLink="/well-wisher-supporters"
                class="nav-link font-medium transition-colors duration-300"
                [class.text-white]="!isScrolled"
                [class.text-gray-700]="isScrolled"
@@ -145,7 +145,7 @@ import { RouterModule } from '@angular/router';
               </div>
             </div>
 
-            <a routerLink="/well-wisher"
+            <a routerLink="/well-wisher-supporters"
                class="block px-4 py-2 text-gray-700 hover:bg-kerala-gold hover:text-white transition-colors duration-300"
                (click)="closeMobileMenu()">
               WELL WISHER & SUPPORTERS

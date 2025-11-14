@@ -1,0 +1,191 @@
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Orange theme color variables
+:root {
+  --orange-primary: #f97316;
+  --orange-secondary: #ea580c;
+  --orange-light: #fed7aa;
+  --orange-dark: #c2410c;
+}
+
+// Sports card hover effects
+.sports-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sports-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+}
+
+// Status and category badges
+.status-badge, .category-badge {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Results box styling
+.results-box {
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+  border-left: 4px solid var(--orange-primary);
+}
+
+// Statistics animations
+.stat-item {
+  animation: slideUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Button hover effects with sport theme
+.btn-register {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-register::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-register:hover::before {
+  left: 100%;
+}
+
+// Filter button animations
+.filter-btn {
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+}
+
+.filter-btn.active {
+  background: var(--orange-primary);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+// Sport icons with bounce animation
+.sport-icon {
+  transition: transform 0.3s ease;
+}
+
+.sport-icon:hover {
+  transform: scale(1.1);
+}
+
+// Progress bars for participant counts
+.participant-bar {
+  background: linear-gradient(90deg, var(--orange-primary), var(--orange-secondary));
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.5s ease-in-out;
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .stat-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orange-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-dark);
+}
+
+// Loading skeleton
+.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Trophy icon animation for winners
+.trophy-icon {
+  animation: trophyGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes trophyGlow {
+  from {
+    filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.6));
+  }
+}

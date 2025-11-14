@@ -1,0 +1,119 @@
+<!-- Hero Section -->
+<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
+  <div class="container-custom text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Past Events</h1>
+    <p class="text-xl opacity-90 max-w-2xl mx-auto">
+      Relive the memorable moments from our previous events and activities
+    </p>
+  </div>
+</section>
+
+<!-- Events Grid -->
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let event of pastEvents" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <!-- Event Image/Icon -->
+        <div class="h-48 bg-gradient-to-br from-kerala-gold to-kerala-green flex items-center justify-center relative">
+          <span class="material-icons text-white text-6xl">{{ getEventIcon(event.category) }}</span>
+          <div class="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-3 py-1">
+            <span class="text-kerala-gold font-semibold text-sm">{{ event.category }}</span>
+          </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{{ event.title }}</h3>
+          <p class="text-gray-600 mb-4 line-clamp-3">{{ event.description }}</p>
+
+          <!-- Event Info -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
+              <span>{{ event.date }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">access_time</span>
+              <span>{{ event.time }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">location_on</span>
+              <span>{{ event.location }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">people</span>
+              <span>{{ event.attendees }} attendees</span>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="flex items-center mb-4">
+            <div class="flex mr-2">
+              <span *ngFor="let star of getRatingStars(event.rating)" class="material-icons text-yellow-400 text-sm">
+                {{ star }}
+              </span>
+            </div>
+            <span class="text-sm text-gray-600">{{ event.rating }}/5.0</span>
+          </div>
+
+          <!-- View Photos Button -->
+          <button (click)="openPhotoGallery(event)"
+                  class="w-full bg-kerala-green hover:bg-kerala-green-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+            <span class="material-icons mr-2">photo_library</span>
+            View Event Photos
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="pastEvents.length === 0" class="text-center py-16">
+      <span class="material-icons text-gray-400 text-6xl mb-4">history</span>
+      <h3 class="text-xl font-semibold text-gray-600 mb-2">No past events</h3>
+      <p class="text-gray-500">Check back later for event archives</p>
+    </div>
+  </div>
+</section>
+
+<!-- Photo Gallery Modal -->
+<div *ngIf="showPhotoGallery && selectedEvent" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+    <div class="p-6 border-b">
+      <div class="flex justify-between items-center">
+        <h3 class="text-2xl font-bold text-gray-900">{{ selectedEvent.title }}</h3>
+        <button (click)="closePhotoGallery()" class="text-gray-400 hover:text-gray-600">
+          <span class="material-icons text-3xl">close</span>
+        </button>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div *ngFor="let photo of selectedEvent.photos" class="aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
+          <span class="material-icons text-gray-400 text-4xl">photo</span>
+          <!-- In a real app, you'd use <img src="photo" alt="Event photo"> -->
+        </div>
+      </div>
+      <p class="text-gray-600 mt-4 text-center">Event photos will be displayed here</p>
+    </div>
+  </div>
+</div>
+
+<!-- Call to Action -->
+<section class="section-padding bg-kerala-gold">
+  <div class="container-custom text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+      Join Our Next Event!
+    </h2>
+    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+      Don't miss out on our upcoming events. Stay connected and be part of our vibrant community
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        View Upcoming Events
+      </button>
+      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        Subscribe to Updates
+      </button>
+    </div>
+  </div>
+</section>

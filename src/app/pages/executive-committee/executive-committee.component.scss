@@ -1,0 +1,233 @@
+// Committee member card styling
+.committee-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.committee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+// Position badge styling
+.position-badge {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(217, 119, 6, 0.3);
+}
+
+// Member avatar/icon styling
+.member-avatar {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(217, 119, 6, 0.3);
+}
+
+// Contact information styling
+.contact-info {
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #6b7280;
+
+    .material-icons {
+      margin-right: 12px;
+      color: #d97706;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Achievements list styling
+.achievements-list {
+  .achievement-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #6b7280;
+
+    .material-icons {
+      margin-right: 8px;
+      color: #d97706;
+      font-size: 14px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Contact button styling
+.contact-btn {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+
+  &:hover {
+    background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(217, 119, 6, 0.4);
+  }
+
+  .material-icons {
+    font-size: 18px;
+  }
+}
+
+// Committee structure cards
+.structure-card {
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .structure-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    .material-icons {
+      font-size: 32px;
+      color: white;
+    }
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #6b7280;
+    line-height: 1.5;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .committee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .structure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .structure-card {
+    padding: 20px;
+
+    .structure-icon {
+      width: 56px;
+      height: 56px;
+
+      .material-icons {
+        font-size: 28px;
+      }
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.committee-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.committee-card:nth-child(2) { animation-delay: 0.1s; }
+.committee-card:nth-child(3) { animation-delay: 0.2s; }
+.committee-card:nth-child(4) { animation-delay: 0.3s; }
+.committee-card:nth-child(5) { animation-delay: 0.4s; }
+.committee-card:nth-child(6) { animation-delay: 0.5s; }
+.committee-card:nth-child(7) { animation-delay: 0.6s; }
+.committee-card:nth-child(8) { animation-delay: 0.7s; }
+
+// Hover effects
+.committee-card:hover {
+  .member-avatar {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+}
+
+// Focus states
+.contact-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.3);
+}
+
+// Loading states
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b45309;
+}

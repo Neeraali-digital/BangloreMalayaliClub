@@ -1,0 +1,382 @@
+// Year filter buttons
+.year-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+
+  .filter-btn {
+    padding: 8px 24px;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+
+    &.active {
+      background: #d97706;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    &:not(.active) {
+      background: #e5e7eb;
+      color: #374151;
+
+      &:hover {
+        background: #d1d5db;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+// Committee year header
+.committee-year-header {
+  text-align: center;
+  margin-bottom: 32px;
+
+  .year-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .committee-leaders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    color: #6b7280;
+
+    .leader-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .material-icons {
+        color: #d97706;
+      }
+    }
+  }
+}
+
+// Member card styling
+.past-member-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .member-header {
+    position: relative;
+    height: 128px;
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .position-icon {
+      font-size: 64px;
+      color: white;
+    }
+
+    .position-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 9999px;
+      padding: 4px 12px;
+
+      .position-text {
+        color: #d97706;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .member-content {
+    padding: 24px;
+
+    .member-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .member-term {
+      color: #d97706;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .current-role {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .achievements-section {
+      .achievements-title {
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 12px;
+      }
+
+      .achievements-list {
+        .achievement-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 8px;
+          font-size: 14px;
+          color: #6b7280;
+
+          .material-icons {
+            margin-right: 8px;
+            color: #d97706;
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Key highlights section
+.key-highlights {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+
+  .highlights-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      .material-icons {
+        color: #d97706;
+        font-size: 20px;
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+
+      span {
+        color: #374151;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// Legacy section
+.legacy-section {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+
+  .legacy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+
+    .legacy-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .legacy-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+
+        .material-icons {
+          font-size: 24px;
+          color: white;
+        }
+      }
+
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// Empty state
+.empty-state {
+  text-align: center;
+  padding: 64px 0;
+
+  .empty-icon {
+    font-size: 96px;
+    color: #d1d5db;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #9ca3af;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .year-filter {
+    gap: 12px;
+
+    .filter-btn {
+      padding: 6px 16px;
+      font-size: 14px;
+    }
+  }
+
+  .committee-leaders {
+    flex-direction: column;
+    gap: 16px !important;
+  }
+
+  .member-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .legacy-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .committee-year-header {
+    .year-title {
+      font-size: 36px;
+    }
+  }
+
+  .past-member-card {
+    .member-header {
+      height: 96px;
+
+      .position-icon {
+        font-size: 48px;
+      }
+    }
+
+    .member-content {
+      padding: 20px;
+
+      .member-name {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .key-highlights {
+    padding: 24px;
+
+    .highlights-title {
+      font-size: 20px;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.past-member-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+// Hover effects
+.past-member-card:hover {
+  .position-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b45309;
+}

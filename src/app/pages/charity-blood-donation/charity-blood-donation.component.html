@@ -1,0 +1,181 @@
+<!-- Hero Section -->
+<section class="pt-24 pb-16 bg-gradient-to-r from-red-500 to-red-700">
+  <div class="container-custom text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Charity & Blood Donation</h1>
+    <p class="text-xl opacity-90 max-w-2xl mx-auto">
+      Making a difference through charitable activities and life-saving blood donations
+    </p>
+  </div>
+</section>
+
+<!-- Filter Section -->
+<section class="py-8 bg-white shadow-sm">
+  <div class="container-custom">
+    <div class="flex flex-wrap justify-center gap-4">
+      <button
+        (click)="filterEvents('All')"
+        [class.bg-kerala-gold]="selectedType === 'All'"
+        [class.text-white]="selectedType === 'All'"
+        [class.bg-gray-200]="selectedType !== 'All'"
+        [class.text-gray-700]="selectedType !== 'All'"
+        class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+        All Activities
+      </button>
+      <button
+        (click)="filterEvents('Charity')"
+        [class.bg-kerala-gold]="selectedType === 'Charity'"
+        [class.text-white]="selectedType === 'Charity'"
+        [class.bg-gray-200]="selectedType !== 'Charity'"
+        [class.text-gray-700]="selectedType !== 'Charity'"
+        class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+        Charity Events
+      </button>
+      <button
+        (click)="filterEvents('Blood Donation')"
+        [class.bg-kerala-gold]="selectedType === 'Blood Donation'"
+        [class.text-white]="selectedType === 'Blood Donation'"
+        [class.bg-gray-200]="selectedType !== 'Blood Donation'"
+        [class.text-gray-700]="selectedType !== 'Blood Donation'"
+        class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+        Blood Donation
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Events Grid -->
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let event of filteredEvents" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <!-- Event Image/Icon -->
+        <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center relative">
+          <span class="material-icons text-white text-6xl">{{ getEventIcon(event.type) }}</span>
+          <div class="absolute top-4 right-4">
+            <span [class]="getStatusColor(event.status)" class="px-3 py-1 rounded-full text-xs font-semibold">
+              {{ event.status }}
+            </span>
+          </div>
+          <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-full px-3 py-1">
+            <span class="text-red-600 font-semibold text-sm">{{ event.type }}</span>
+          </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{{ event.title }}</h3>
+          <p class="text-gray-600 mb-4 line-clamp-3">{{ event.description }}</p>
+
+          <!-- Event Info -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-red-500 mr-3 text-lg">event</span>
+              <span>{{ event.date }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-red-500 mr-3 text-lg">access_time</span>
+              <span>{{ event.time }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-red-500 mr-3 text-lg">location_on</span>
+              <span>{{ event.location }}</span>
+            </div>
+            <div *ngIf="event.beneficiaries > 0" class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-red-500 mr-3 text-lg">people</span>
+              <span>{{ event.beneficiaries }} beneficiaries</span>
+            </div>
+            <div *ngIf="event.fundsRaised" class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-red-500 mr-3 text-lg">account_balance_wallet</span>
+              <span>{{ formatCurrency(event.fundsRaised) }} raised</span>
+            </div>
+            <div *ngIf="event.bloodUnits" class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-red-500 mr-3 text-lg">bloodtype</span>
+              <span>{{ event.bloodUnits }} units collected</span>
+            </div>
+          </div>
+
+          <!-- Impact Statement -->
+          <div class="bg-red-50 p-4 rounded-lg mb-6">
+            <h4 class="font-semibold text-red-800 mb-2">Impact</h4>
+            <p class="text-red-700 text-sm">{{ event.impact }}</p>
+          </div>
+
+          <!-- Participate Button -->
+          <button (click)="participateInEvent(event)"
+                  [class.bg-red-500]="event.status === 'Upcoming'"
+                  [class.hover:bg-red-600]="event.status === 'Upcoming'"
+                  [class.bg-gray-400]="event.status === 'Completed'"
+                  [class.cursor-not-allowed]="event.status === 'Completed'"
+                  class="w-full text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+            <span class="material-icons mr-2">{{ event.status === 'Upcoming' ? 'add' : 'check_circle' }}</span>
+            {{ event.status === 'Upcoming' ? 'Participate' : 'Completed' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredEvents.length === 0" class="text-center py-16">
+      <span class="material-icons text-gray-400 text-6xl mb-4">volunteer_activism</span>
+      <h3 class="text-xl font-semibold text-gray-600 mb-2">No events found</h3>
+      <p class="text-gray-500">Try selecting a different category</p>
+    </div>
+  </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="section-padding bg-red-600">
+  <div class="container-custom">
+    <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">Our Impact</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center">
+        <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-white text-3xl">people</span>
+        </div>
+        <div class="text-3xl font-bold text-white mb-2">1000+</div>
+        <div class="text-red-100">Lives Touched</div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-white text-3xl">bloodtype</span>
+        </div>
+        <div class="text-3xl font-bold text-white mb-2">200+</div>
+        <div class="text-red-100">Blood Units</div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-white text-3xl">account_balance_wallet</span>
+        </div>
+        <div class="text-3xl font-bold text-white mb-2">₹5L+</div>
+        <div class="text-red-100">Funds Raised</div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-white text-3xl">volunteer_activism</span>
+        </div>
+        <div class="text-3xl font-bold text-white mb-2">50+</div>
+        <div class="text-red-100">Events Organized</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-padding bg-kerala-gold">
+  <div class="container-custom text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+      Join Our Mission
+    </h2>
+    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+      Your contribution can make a real difference. Join us in our charitable activities and blood donation drives.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        Become a Volunteer
+      </button>
+      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        Donate Now
+      </button>
+    </div>
+  </div>
+</section>

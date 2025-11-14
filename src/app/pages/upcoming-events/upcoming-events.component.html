@@ -1,0 +1,100 @@
+<!-- Hero Section -->
+<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
+  <div class="container-custom text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Upcoming Events</h1>
+    <p class="text-xl opacity-90 max-w-2xl mx-auto">
+      Discover exciting upcoming events and activities organized by the Bangalore Malayali Club
+    </p>
+  </div>
+</section>
+
+<!-- Events Grid -->
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let event of upcomingEvents" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <!-- Event Image/Icon -->
+        <div class="h-48 bg-gradient-to-br from-kerala-gold to-kerala-green flex items-center justify-center relative">
+          <span class="material-icons text-white text-6xl">{{ getEventIcon(event.category) }}</span>
+          <div class="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-3 py-1">
+            <span class="text-kerala-gold font-semibold text-sm">{{ event.category }}</span>
+          </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{{ event.title }}</h3>
+          <p class="text-gray-600 mb-4 line-clamp-3">{{ event.description }}</p>
+
+          <!-- Event Info -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
+              <span>{{ event.date }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">access_time</span>
+              <span>{{ event.time }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">location_on</span>
+              <span>{{ event.location }}</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="material-icons text-kerala-gold mr-3 text-lg">schedule</span>
+              <span>Registration closes: {{ event.registrationDeadline }}</span>
+            </div>
+          </div>
+
+          <!-- Registration Progress -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-gray-600">Registration Progress</span>
+              <span class="text-kerala-gold font-semibold">{{ event.registered }}/{{ event.capacity }}</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-kerala-gold h-2 rounded-full transition-all duration-300"
+                   [style.width.%]="getRegistrationProgress(event)"></div>
+            </div>
+          </div>
+
+          <!-- Register Button -->
+          <button (click)="registerForEvent(event)"
+                  class="w-full bg-kerala-gold hover:bg-kerala-gold-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center"
+                  [class.opacity-50]="event.registered >= event.capacity"
+                  [disabled]="event.registered >= event.capacity">
+            <span class="material-icons mr-2">{{ event.registered >= event.capacity ? 'event_busy' : 'person_add' }}</span>
+            {{ event.registered >= event.capacity ? 'Event Full' : 'Register Now' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="upcomingEvents.length === 0" class="text-center py-16">
+      <span class="material-icons text-gray-400 text-6xl mb-4">event_note</span>
+      <h3 class="text-xl font-semibold text-gray-600 mb-2">No upcoming events</h3>
+      <p class="text-gray-500">Check back later for new events and activities</p>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-padding bg-kerala-gold">
+  <div class="container-custom text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+      Don't Miss Out!
+    </h2>
+    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+      Stay connected with our community and be the first to know about upcoming events
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        Subscribe to Newsletter
+      </button>
+      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        Join Our Community
+      </button>
+    </div>
+  </div>
+</section>
