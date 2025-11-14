@@ -1,0 +1,25 @@
+/* Video Section Styles */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-container video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Enhanced shadow on hover */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-container {
+    margin: 0 1rem;
+  }
+}
