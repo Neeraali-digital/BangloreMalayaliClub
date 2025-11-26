@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,17 +10,17 @@
   }
   
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-theme-background text-theme-on-background font-sans;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-kerala-gold hover:bg-yellow-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+    @apply bg-theme-primary hover:bg-red-600 text-theme-on-primary font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
   }
-  
+
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-kerala-gold border-2 border-kerala-gold font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+    @apply bg-white hover:bg-theme-background text-theme-primary border-2 border-theme-primary font-semibold py-3 px-6 rounded-lg transition-all duration-300;
   }
   
   .card {

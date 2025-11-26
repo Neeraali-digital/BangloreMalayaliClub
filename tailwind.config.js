@@ -11,10 +11,19 @@ module.exports = {
           green: '#228B22',
           coconut: '#8B4513',
           water: '#4682B4'
+        },
+        theme: {
+          primary: '#DD2222', // Action Red - for main buttons, navigation
+          accent: '#004499', // Navy Blue - for secondary actions, background contrast
+          'on-primary': '#FFFFFF', // Pure White - text on dark background
+          warn: '#FF8800', // Orange/Gold - for alerts, important messages
+          background: '#F4F4F4', // Light Gray - page/card background
+          'on-background': '#333333' // Dark Text - body text on white
         }
       },
       fontFamily: {
         'malayalam': ['Noto Sans Malayalam', 'sans-serif'],
+        'sans': ['Poppins', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

@@ -174,16 +174,16 @@ export class ExistingMembersComponent implements OnInit {
 
   getMembershipTypeColor(type: string): string {
     const colors: { [key: string]: string } = {
-      'Individual': 'bg-blue-100 text-blue-800',
-      'Family': 'bg-green-100 text-green-800',
-      'Student': 'bg-purple-100 text-purple-800',
-      'Senior Citizen': 'bg-orange-100 text-orange-800'
+      'Individual': 'bg-theme-primary/10 text-theme-primary',
+      'Family': 'bg-theme-accent/10 text-theme-accent',
+      'Student': 'bg-purple-500/10 text-purple-500',
+      'Senior Citizen': 'bg-theme-warn/10 text-theme-warn'
     };
     return colors[type] || 'bg-gray-100 text-gray-800';
   }
 
   getStatusColor(status: string): string {
-    return status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
+    return status === 'Active' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500';
   }
 
   formatDate(dateString: string): string {

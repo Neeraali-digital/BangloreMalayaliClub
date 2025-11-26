@@ -1,5 +1,5 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent">
   <div class="container-custom text-center text-white">
     <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Members</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
@@ -21,7 +21,7 @@
             [(ngModel)]="searchTerm"
             (input)="onSearchChange()"
             placeholder="Search members by name, ID, or email..."
-            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-colors duration-300">
+            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-colors duration-300">
         </div>
       </div>
 
@@ -29,46 +29,46 @@
       <div class="flex flex-wrap gap-4">
         <button
           (click)="filterMembers('All')"
-          [class.bg-kerala-gold]="selectedType === 'All'"
+          [class.bg-theme-primary]="selectedType === 'All'"
           [class.text-white]="selectedType === 'All'"
-          [class.bg-gray-200]="selectedType !== 'All'"
-          [class.text-gray-700]="selectedType !== 'All'"
+          [class.bg-theme-background]="selectedType !== 'All'"
+          [class.text-theme-on-background]="selectedType !== 'All'"
           class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           All Members
         </button>
         <button
           (click)="filterMembers('Individual')"
-          [class.bg-kerala-gold]="selectedType === 'Individual'"
+          [class.bg-theme-primary]="selectedType === 'Individual'"
           [class.text-white]="selectedType === 'Individual'"
-          [class.bg-gray-200]="selectedType !== 'Individual'"
-          [class.text-gray-700]="selectedType !== 'Individual'"
+          [class.bg-theme-background]="selectedType !== 'Individual'"
+          [class.text-theme-on-background]="selectedType !== 'Individual'"
           class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Individual
         </button>
         <button
           (click)="filterMembers('Family')"
-          [class.bg-kerala-gold]="selectedType === 'Family'"
+          [class.bg-theme-primary]="selectedType === 'Family'"
           [class.text-white]="selectedType === 'Family'"
-          [class.bg-gray-200]="selectedType !== 'Family'"
-          [class.text-gray-700]="selectedType !== 'Family'"
+          [class.bg-theme-background]="selectedType !== 'Family'"
+          [class.text-theme-on-background]="selectedType !== 'Family'"
           class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Family
         </button>
         <button
           (click)="filterMembers('Student')"
-          [class.bg-kerala-gold]="selectedType === 'Student'"
+          [class.bg-theme-primary]="selectedType === 'Student'"
           [class.text-white]="selectedType === 'Student'"
-          [class.bg-gray-200]="selectedType !== 'Student'"
-          [class.text-gray-700]="selectedType !== 'Student'"
+          [class.bg-theme-background]="selectedType !== 'Student'"
+          [class.text-theme-on-background]="selectedType !== 'Student'"
           class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Student
         </button>
         <button
           (click)="filterMembers('Senior Citizen')"
-          [class.bg-kerala-gold]="selectedType === 'Senior Citizen'"
+          [class.bg-theme-primary]="selectedType === 'Senior Citizen'"
           [class.text-white]="selectedType === 'Senior Citizen'"
-          [class.bg-gray-200]="selectedType !== 'Senior Citizen'"
-          [class.text-gray-700]="selectedType !== 'Senior Citizen'"
+          [class.bg-theme-background]="selectedType !== 'Senior Citizen'"
+          [class.text-theme-on-background]="selectedType !== 'Senior Citizen'"
           class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Senior Citizen
         </button>
@@ -78,11 +78,11 @@
 </section>
 
 <!-- Members Grid -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
     <!-- Results Count -->
     <div class="mb-8">
-      <p class="text-gray-600">
+      <p class="text-theme-on-background">
         Showing {{ filteredMembers.length }} of {{ members.length }} members
       </p>
     </div>
@@ -91,12 +91,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       <div *ngFor="let member of filteredMembers" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
         <!-- Member Header -->
-        <div class="bg-gradient-to-br from-kerala-gold to-kerala-green p-6 text-center">
+        <div class="bg-gradient-to-br from-theme-primary to-theme-accent p-6 text-center">
           <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
             <span class="text-white text-2xl font-bold">{{ getInitials(member.firstName, member.lastName) }}</span>
           </div>
           <h3 class="text-xl font-bold text-white mb-1">{{ member.firstName }} {{ member.lastName }}</h3>
-          <p class="text-kerala-green-light text-sm">{{ member.membershipId }}</p>
+          <p class="text-theme-on-primary/80 text-sm">{{ member.membershipId }}</p>
         </div>
 
         <!-- Member Details -->
@@ -113,35 +113,35 @@
 
           <!-- Contact Info -->
           <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">email</span>
+            <div class="flex items-center text-sm text-theme-on-background">
+              <span class="material-icons text-theme-primary mr-3 text-lg">email</span>
               <span class="truncate">{{ member.email }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">phone</span>
+            <div class="flex items-center text-sm text-theme-on-background">
+              <span class="material-icons text-theme-primary mr-3 text-lg">phone</span>
               <span>{{ member.phone }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">location_on</span>
+            <div class="flex items-center text-sm text-theme-on-background">
+              <span class="material-icons text-theme-primary mr-3 text-lg">location_on</span>
               <span>{{ member.city }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">work</span>
+            <div class="flex items-center text-sm text-theme-on-background">
+              <span class="material-icons text-theme-primary mr-3 text-lg">work</span>
               <span>{{ member.occupation }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
+            <div class="flex items-center text-sm text-theme-on-background">
+              <span class="material-icons text-theme-primary mr-3 text-lg">event</span>
               <span>Joined {{ formatDate(member.joinDate) }}</span>
             </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="flex gap-2">
-            <button class="flex-1 bg-kerala-gold hover:bg-kerala-gold-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm flex items-center justify-center">
+            <button class="flex-1 btn-primary text-sm flex items-center justify-center">
               <span class="material-icons mr-1 text-sm">contact_mail</span>
               Contact
             </button>
-            <button class="flex-1 border border-kerala-gold text-kerala-gold hover:bg-kerala-gold hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm flex items-center justify-center">
+            <button class="flex-1 btn-secondary text-sm flex items-center justify-center">
               <span class="material-icons mr-1 text-sm">visibility</span>
               Profile
             </button>
@@ -153,14 +153,14 @@
     <!-- Empty State -->
     <div *ngIf="filteredMembers.length === 0" class="text-center py-16">
       <span class="material-icons text-gray-400 text-6xl mb-4">people</span>
-      <h3 class="text-xl font-semibold text-gray-600 mb-2">No members found</h3>
-      <p class="text-gray-500">Try adjusting your search or filter criteria</p>
+      <h3 class="text-xl font-semibold text-theme-on-background mb-2">No members found</h3>
+      <p class="text-theme-on-background">Try adjusting your search or filter criteria</p>
     </div>
   </div>
 </section>
 
 <!-- Statistics Section -->
-<section class="section-padding bg-kerala-gold">
+<section class="section-padding bg-theme-primary">
   <div class="container-custom">
     <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">Membership Statistics</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -169,35 +169,35 @@
           <span class="material-icons text-white text-3xl">people</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">{{ members.length }}</div>
-        <div class="text-kerala-green-light">Total Members</div>
+        <div class="text-theme-on-primary/80">Total Members</div>
       </div>
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">family_restroom</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">{{ getFamilyCount() }}</div>
-        <div class="text-kerala-green-light">Family Members</div>
+        <div class="text-theme-on-primary/80">Family Members</div>
       </div>
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">school</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">{{ getStudentCount() }}</div>
-        <div class="text-kerala-green-light">Students</div>
+        <div class="text-theme-on-primary/80">Students</div>
       </div>
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">elderly</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">{{ getSeniorCitizenCount() }}</div>
-        <div class="text-kerala-green-light">Senior Citizens</div>
+        <div class="text-theme-on-primary/80">Senior Citizens</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
-<section class="section-padding bg-kerala-green">
+<section class="section-padding bg-theme-accent">
   <div class="container-custom text-center">
     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
       Join Our Growing Community
@@ -206,10 +206,10 @@
       Become a part of our vibrant Malayali community in Bangalore. Connect, share, and celebrate together.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-kerala-green hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      <button class="bg-white text-theme-accent hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
         Apply for Membership
       </button>
-      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-green font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      <button class="border-2 border-white text-white hover:bg-white hover:text-theme-accent font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
         Contact Us
       </button>
     </div>

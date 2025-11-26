@@ -1,23 +1,23 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ScrollAnimationDirective],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  memberCount: number = 100000;
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('heroSection') heroSection!: ElementRef<HTMLElement>;
   private videoObserver: IntersectionObserver | null = null;
 
-  ngOnInit() {
-    // Add scroll animations
-    this.observeElements();
-    // Add video scroll observer
-    this.observeVideoSection();
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.observeVideo();
   }
 
   ngOnDestroy() {
@@ -26,48 +26,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  private observeElements() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in-up');
-        }
-      });
-    });
-
-    // Observe elements for animation
-    setTimeout(() => {
-      const elements = document.querySelectorAll('.card');
-      elements.forEach(el => observer.observe(el));
-    }, 100);
-  }
-
-  private observeVideoSection() {
+  private observeVideo() {
     this.videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const video = entry.target.querySelector('video') as HTMLVideoElement;
+        const video = this.heroSection.nativeElement.querySelector('video');
         if (video) {
           if (entry.isIntersecting) {
-            // Video is in view, play it
-            video.play().catch(() => {
-              // Autoplay might be blocked, that's okay
-            });
+            video.play().catch(e => console.error('Video autoplay was blocked.', e));
           } else {
-            // Video is out of view, pause it
             video.pause();
           }
         }
       });
-    }, {
-      threshold: 0.5 // Trigger when 50% of the section is visible
-    });
+    }, { threshold: 0.1 });
 
-    // Observe the video section
-    setTimeout(() => {
-      const videoSection = document.querySelector('.video-section');
-      if (videoSection) {
-        this.videoObserver!.observe(videoSection);
-      }
-    }, 100);
+    this.videoObserver.observe(this.heroSection.nativeElement);
   }
 }

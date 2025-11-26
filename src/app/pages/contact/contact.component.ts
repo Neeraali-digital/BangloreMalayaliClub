@@ -8,8 +8,8 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   template: `
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
-      <div class="container-custom text-center text-white">
+    <section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent">
+      <div class="container-custom text-center text-theme-on-primary">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Get in touch with us for membership, events, or any queries
@@ -23,15 +23,15 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Contact Form -->
           <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+            <h2 class="text-3xl font-bold text-theme-on-background mb-6">Send us a Message</h2>
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                  <label class="block text-sm font-medium text-theme-on-background mb-2">First Name *</label>
                   <input 
                     type="text" 
                     formControlName="firstName"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-all duration-300"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-all duration-300"
                     [class.border-red-500]="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">
                   <div *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched" 
                        class="text-red-500 text-sm mt-1">
@@ -39,11 +39,11 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
                   </div>
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                  <label class="block text-sm font-medium text-theme-on-background mb-2">Last Name *</label>
                   <input 
                     type="text" 
                     formControlName="lastName"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-all duration-300"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-all duration-300"
                     [class.border-red-500]="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched">
                   <div *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched" 
                        class="text-red-500 text-sm mt-1">
@@ -53,11 +53,11 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                <label class="block text-sm font-medium text-theme-on-background mb-2">Email *</label>
                 <input 
                   type="email" 
                   formControlName="email"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-all duration-300"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-all duration-300"
                   [class.border-red-500]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
                 <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" 
                      class="text-red-500 text-sm mt-1">
@@ -67,18 +67,18 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                <label class="block text-sm font-medium text-theme-on-background mb-2">Phone</label>
                 <input 
                   type="tel" 
                   formControlName="phone"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-all duration-300">
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-all duration-300">
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                <label class="block text-sm font-medium text-theme-on-background mb-2">Subject *</label>
                 <select 
                   formControlName="subject"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-all duration-300"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-all duration-300"
                   [class.border-red-500]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
                   <option value="">Select a subject</option>
                   <option value="membership">Membership Inquiry</option>
@@ -94,11 +94,11 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                <label class="block text-sm font-medium text-theme-on-background mb-2">Message *</label>
                 <textarea 
                   formControlName="message"
                   rows="5"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kerala-gold focus:border-transparent transition-all duration-300 resize-none"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-primary focus:border-transparent transition-all duration-300 resize-none"
                   [class.border-red-500]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
                 <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" 
                      class="text-red-500 text-sm mt-1">
@@ -130,16 +130,16 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 
           <!-- Contact Information -->
           <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+            <h2 class="text-3xl font-bold text-theme-on-background mb-6">Get in Touch</h2>
             
             <div class="space-y-6 mb-8">
               <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-kerala-gold rounded-full flex items-center justify-center flex-shrink-0">
-                  <span class="material-icons text-white">location_on</span>
+                <div class="w-12 h-12 bg-theme-primary rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="material-icons text-theme-on-primary">location_on</span>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Address</h3>
-                  <p class="text-gray-600">
+                  <h3 class="font-semibold text-theme-on-background mb-1">Address</h3>
+                  <p class="text-theme-on-background">
                     BMC Community Hall<br>
                     Koramangala, Bengaluru<br>
                     Karnataka 560034
@@ -148,34 +148,34 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
               </div>
 
               <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-kerala-gold rounded-full flex items-center justify-center flex-shrink-0">
-                  <span class="material-icons text-white">phone</span>
+                <div class="w-12 h-12 bg-theme-primary rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="material-icons text-theme-on-primary">phone</span>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <p class="text-gray-600">+91 98765 43210</p>
-                  <p class="text-gray-600">+91 87654 32109</p>
+                  <h3 class="font-semibold text-theme-on-background mb-1">Phone</h3>
+                  <p class="text-theme-on-background">+91 98765 43210</p>
+                  <p class="text-theme-on-background">+91 87654 32109</p>
                 </div>
               </div>
 
               <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-kerala-gold rounded-full flex items-center justify-center flex-shrink-0">
-                  <span class="material-icons text-white">email</span>
+                <div class="w-12 h-12 bg-theme-primary rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="material-icons text-theme-on-primary">email</span>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p class="text-gray-600">info&#64;bengalurumalayli.club</p>
-                  <p class="text-gray-600">events&#64;bengalurumalayli.club</p>
+                  <h3 class="font-semibold text-theme-on-background mb-1">Email</h3>
+                  <p class="text-theme-on-background">info&#64;bengalurumalayli.club</p>
+                  <p class="text-theme-on-background">events&#64;bengalurumalayli.club</p>
                 </div>
               </div>
 
               <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-kerala-gold rounded-full flex items-center justify-center flex-shrink-0">
-                  <span class="material-icons text-white">schedule</span>
+                <div class="w-12 h-12 bg-theme-primary rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="material-icons text-theme-on-primary">schedule</span>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Office Hours</h3>
-                  <p class="text-gray-600">
+                  <h3 class="font-semibold text-theme-on-background mb-1">Office Hours</h3>
+                  <p class="text-theme-on-background">
                     Monday - Friday: 10:00 AM - 6:00 PM<br>
                     Saturday: 10:00 AM - 2:00 PM<br>
                     Sunday: Closed
@@ -185,8 +185,8 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
             </div>
 
             <!-- Map Placeholder -->
-            <div class="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-              <div class="text-center text-gray-500">
+            <div class="bg-theme-background rounded-lg h-64 flex items-center justify-center">
+              <div class="text-center text-theme-on-background">
                 <span class="material-icons text-4xl mb-2">map</span>
                 <p>Interactive Map</p>
                 <p class="text-sm">Google Maps integration would go here</p>
@@ -198,11 +198,11 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
     </section>
 
     <!-- FAQ Section -->
-    <section class="section-padding bg-gray-50">
+    <section class="section-padding bg-theme-background">
       <div class="container-custom">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-theme-on-background mb-4">Frequently Asked Questions</h2>
+          <p class="text-xl text-theme-on-background max-w-2xl mx-auto">
             Find answers to common questions about our club
           </p>
         </div>
@@ -212,8 +212,8 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
             <button 
               class="w-full p-6 text-left flex items-center justify-between"
               (click)="toggleFaq(i)">
-              <h3 class="font-semibold text-gray-900">{{ faq.question }}</h3>
-              <span class="material-icons text-kerala-gold transition-transform duration-300"
+              <h3 class="font-semibold text-theme-on-background">{{ faq.question }}</h3>
+              <span class="material-icons text-theme-primary transition-transform duration-300"
                     [class.rotate-180]="faq.isOpen">
                 expand_more
               </span>
@@ -222,7 +222,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
                  [class.max-h-0]="!faq.isOpen"
                  [class.max-h-96]="faq.isOpen">
               <div class="px-6 pb-6">
-                <p class="text-gray-600">{{ faq.answer }}</p>
+                <p class="text-theme-on-background">{{ faq.answer }}</p>
               </div>
             </div>
           </div>
