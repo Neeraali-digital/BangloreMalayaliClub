@@ -1,9 +1,9 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-orange-500 to-orange-600">
-  <div class="container-custom text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Sports Events</h1>
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Sports Events</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
-      Join exciting sports tournaments, training sessions, and friendly matches
+      Join exciting sports tournaments, training sessions, and friendly matches.
     </p>
   </div>
 </section>
@@ -14,37 +14,37 @@
     <div class="flex flex-wrap justify-center gap-4">
       <button
         (click)="filterEvents('All')"
-        [class.bg-kerala-gold]="selectedSport === 'All'"
+        [class.bg-theme-primary]="selectedSport === 'All'"
         [class.text-white]="selectedSport === 'All'"
-        [class.bg-gray-200]="selectedSport !== 'All'"
-        [class.text-gray-700]="selectedSport !== 'All'"
+        [class.bg-theme-background]="selectedSport !== 'All'"
+        [class.text-theme-on-background]="selectedSport !== 'All'"
         class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
         All Sports
       </button>
       <button
         (click)="filterEvents('Football')"
-        [class.bg-kerala-gold]="selectedSport === 'Football'"
+        [class.bg-theme-primary]="selectedSport === 'Football'"
         [class.text-white]="selectedSport === 'Football'"
-        [class.bg-gray-200]="selectedSport !== 'Football'"
-        [class.text-gray-700]="selectedSport !== 'Football'"
+        [class.bg-theme-background]="selectedSport !== 'Football'"
+        [class.text-theme-on-background]="selectedSport !== 'Football'"
         class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
         Football
       </button>
       <button
         (click)="filterEvents('Cricket')"
-        [class.bg-kerala-gold]="selectedSport === 'Cricket'"
+        [class.bg-theme-primary]="selectedSport === 'Cricket'"
         [class.text-white]="selectedSport === 'Cricket'"
-        [class.bg-gray-200]="selectedSport !== 'Cricket'"
-        [class.text-gray-700]="selectedSport !== 'Cricket'"
+        [class.bg-theme-background]="selectedSport !== 'Cricket'"
+        [class.text-theme-on-background]="selectedSport !== 'Cricket'"
         class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
         Cricket
       </button>
       <button
         (click)="filterEvents('Badminton')"
-        [class.bg-kerala-gold]="selectedSport === 'Badminton'"
+        [class.bg-theme-primary]="selectedSport === 'Badminton'"
         [class.text-white]="selectedSport === 'Badminton'"
-        [class.bg-gray-200]="selectedSport !== 'Badminton'"
-        [class.text-gray-700]="selectedSport !== 'Badminton'"
+        [class.bg-theme-background]="selectedSport !== 'Badminton'"
+        [class.text-theme-on-background]="selectedSport !== 'Badminton'"
         class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
         Badminton
       </button>
@@ -53,13 +53,15 @@
 </section>
 
 <!-- Events Grid -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div *ngFor="let event of filteredEvents" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <div *ngFor="let event of filteredEvents" class="card p-0 overflow-hidden" app-scroll-animation>
         <!-- Event Image/Icon -->
-        <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center relative">
-          <span class="material-icons text-white text-6xl">{{ getSportIcon(event.sport) }}</span>
+        <div class="relative h-48 group">
+          <div class="absolute inset-0 bg-gradient-to-br from-theme-primary to-theme-accent flex items-center justify-center">
+            <span class="material-icons text-white text-6xl">{{ getSportIcon(event.sport) }}</span>
+          </div>
           <div class="absolute top-4 right-4">
             <span [class]="getStatusColor(event.status)" class="px-3 py-1 rounded-full text-xs font-semibold">
               {{ event.status }}
@@ -73,54 +75,54 @@
         </div>
 
         <!-- Event Details -->
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">{{ event.title }}</h3>
-          <p class="text-gray-600 mb-4 line-clamp-3">{{ event.description }}</p>
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="text-xl font-bold text-theme-on-background mb-3">{{ event.title }}</h3>
+          <p class="text-theme-on-background/70 mb-4 line-clamp-3">{{ event.description }}</p>
 
           <!-- Event Info -->
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-orange-500 mr-3 text-lg">sports</span>
+          <div class="space-y-3 mb-6 mt-auto">
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3">sports</span>
               <span>{{ event.sport }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-orange-500 mr-3 text-lg">event</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3">event</span>
               <span>{{ event.date }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-orange-500 mr-3 text-lg">access_time</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3">access_time</span>
               <span>{{ event.time }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-orange-500 mr-3 text-lg">location_on</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3">location_on</span>
               <span>{{ event.location }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-orange-500 mr-3 text-lg">people</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3">people</span>
               <span>{{ event.participants }}/{{ event.maxParticipants }} participants</span>
             </div>
-            <div *ngIf="event.entryFee > 0" class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-orange-500 mr-3 text-lg">payments</span>
+            <div *ngIf="event.entryFee > 0" class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3">payments</span>
               <span>{{ formatCurrency(event.entryFee) }} entry fee</span>
             </div>
           </div>
 
           <!-- Winner/Prize Info for Completed Events -->
-          <div *ngIf="event.status === 'Completed' && (event.winner || event.prize)" class="bg-orange-50 p-4 rounded-lg mb-6">
-            <h4 class="font-semibold text-orange-800 mb-2">Results</h4>
-            <div *ngIf="event.winner" class="text-orange-700 text-sm mb-1">
+          <div *ngIf="event.status === 'Completed' && (event.winner || event.prize)" class="bg-theme-warn/10 p-4 rounded-lg mb-6">
+            <h4 class="font-semibold text-theme-warn mb-2">Results</h4>
+            <div *ngIf="event.winner" class="text-theme-warn text-sm mb-1">
               <span class="font-medium">Winner:</span> {{ event.winner }}
             </div>
-            <div *ngIf="event.prize" class="text-orange-700 text-sm">
+            <div *ngIf="event.prize" class="text-theme-warn text-sm">
               <span class="font-medium">Prize:</span> {{ event.prize }}
             </div>
           </div>
 
           <!-- Register Button -->
           <button (click)="registerForEvent(event)"
-                  [class.bg-orange-500]="event.status !== 'Completed'"
-                  [class.hover:bg-orange-600]="event.status !== 'Completed'"
+                  [class.btn-primary]="event.status !== 'Completed'"
                   [class.bg-gray-400]="event.status === 'Completed'"
+                  [class.text-white]="event.status === 'Completed'"
                   [class.cursor-not-allowed]="event.status === 'Completed'"
                   class="w-full text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
             <span class="material-icons mr-2">
@@ -133,67 +135,65 @@
     </div>
 
     <!-- Empty State -->
-    <div *ngIf="filteredEvents.length === 0" class="text-center py-16">
-      <span class="material-icons text-gray-400 text-6xl mb-4">sports</span>
-      <h3 class="text-xl font-semibold text-gray-600 mb-2">No events found</h3>
-      <p class="text-gray-500">Try selecting a different sport</p>
+    <div *ngIf="filteredEvents.length === 0" class="text-center py-16" app-scroll-animation>
+      <span class="material-icons text-theme-on-background/30 text-6xl mb-4">sports</span>
+      <h3 class="text-2xl font-semibold text-theme-on-background mb-2">No Sports Events Found</h3>
+      <p class="text-theme-on-background/60">Try selecting a different sport or check back later.</p>
     </div>
   </div>
 </section>
 
 <!-- Statistics Section -->
-<section class="section-padding bg-orange-600">
-  <div class="container-custom">
-    <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">Sports Achievements</h2>
+<section class="section-padding bg-theme-primary text-white">
+  <div class="container-custom" app-scroll-animation>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Sports Achievements</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">emoji_events</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">25+</div>
-        <div class="text-orange-100">Tournaments</div>
+        <div class="text-theme-on-primary/80">Tournaments</div>
       </div>
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">people</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">2000+</div>
-        <div class="text-orange-100">Participants</div>
+        <div class="text-theme-on-primary/80">Participants</div>
       </div>
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">sports_soccer</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">6</div>
-        <div class="text-orange-100">Sports Types</div>
+        <div class="text-theme-on-primary/80">Sports Types</div>
       </div>
       <div class="text-center">
         <div class="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">workspace_premium</span>
         </div>
         <div class="text-3xl font-bold text-white mb-2">₹2L+</div>
-        <div class="text-orange-100">Prize Money</div>
+        <div class="text-theme-on-primary/80">Prize Money</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
-<section class="section-padding bg-kerala-gold">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-      Get Active with Us!
-    </h2>
-    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+<section class="section-padding bg-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h2 class="text-3xl font-bold mb-4">Get Active with Us!</h2>
+    <p class="max-w-2xl mx-auto mb-8">
       Join our sports community and stay fit while having fun. Whether you're a professional or beginner, there's something for everyone.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      <a routerLink="/contact" class="btn-secondary">
         Join a Team
-      </button>
-      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      </a>
+      <a routerLink="/events/upcoming" class="btn-primary">
         View All Events
-      </button>
+      </a>
     </div>
   </div>
 </section>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface GalleryItem {
   id: number;
@@ -12,11 +13,11 @@ interface GalleryItem {
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   template: `
     <!-- Hero Section -->
     <section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent">
-      <div class="container-custom text-center text-white">
+      <div class="container-custom text-center text-white" app-scroll-animation>
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Gallery</h1>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Relive the beautiful moments from our events and celebrations
@@ -44,14 +45,13 @@ interface GalleryItem {
 
     <!-- Gallery Grid -->
     <section class="section-padding bg-theme-background">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <div 
             *ngFor="let item of filteredGallery; let i = index"
-            class="group cursor-pointer"
+            class="group cursor-pointer card p-0 overflow-hidden"
             (click)="openLightbox(i)">
-            <div class="card overflow-hidden">
-              <div class="aspect-square bg-gradient-to-br from-theme-primary to-theme-accent flex items-center justify-center relative overflow-hidden">
+            <div class="aspect-square bg-gradient-to-br from-theme-primary to-theme-accent flex items-center justify-center relative overflow-hidden">
                 <!-- Placeholder for actual images -->
                 <div class="absolute inset-0 bg-gradient-to-br from-theme-primary via-theme-accent to-theme-primary opacity-80"></div>
                 <div class="relative z-10 text-center text-white">
@@ -66,14 +66,13 @@ interface GalleryItem {
                 <h3 class="font-semibold text-theme-on-background mb-1">{{ item.title }}</h3>
                 <p class="text-sm text-theme-on-background">{{ item.description }}</p>
               </div>
-            </div>
           </div>
         </div>
 
-        <div *ngIf="filteredGallery.length === 0" class="text-center py-16">
-          <span class="material-icons text-gray-400 text-6xl mb-4">photo_library</span>
-          <h3 class="text-xl font-semibold text-theme-on-background mb-2">No images found</h3>
-          <p class="text-theme-on-background">Try selecting a different category</p>
+        <div *ngIf="filteredGallery.length === 0" class="text-center py-16" app-scroll-animation>
+          <span class="material-icons text-theme-on-background/30 text-6xl mb-4">photo_library</span>
+          <h3 class="text-2xl font-semibold text-theme-on-background mb-2">No images found</h3>
+          <p class="text-theme-on-background/60">Try selecting a different category</p>
         </div>
       </div>
     </section>

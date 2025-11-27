@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   template: `
     <!-- Hero Section -->
     <section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent">
-      <div class="container-custom text-center text-theme-on-primary">
+      <div class="container-custom text-center text-theme-on-primary" app-scroll-animation>
         <h1 class="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Discover the story of Bengaluru Malayali Club and our mission to preserve Kerala's rich cultural heritage
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
 
     <!-- History Section -->
     <section class="section-padding">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-3xl md:text-4xl font-bold text-theme-on-background mb-6">Our Story</h2>
@@ -61,7 +62,7 @@ import { CommonModule } from '@angular/common';
 
     <!-- Values Section -->
     <section class="section-padding bg-theme-background">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-theme-on-background mb-4">Our Values</h2>
           <p class="text-xl text-theme-on-background max-w-2xl mx-auto">
@@ -70,7 +71,7 @@ import { CommonModule } from '@angular/common';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="text-center">
+          <div class="text-center card p-8">
             <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span class="material-icons text-theme-on-primary text-2xl">favorite</span>
             </div>
@@ -78,7 +79,7 @@ import { CommonModule } from '@angular/common';
             <p class="text-theme-on-background">Bringing together Malayalis from all walks of life</p>
           </div>
 
-          <div class="text-center">
+          <div class="text-center card p-8">
             <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span class="material-icons text-theme-on-primary text-2xl">account_balance</span>
             </div>
@@ -86,7 +87,7 @@ import { CommonModule } from '@angular/common';
             <p class="text-theme-on-background">Preserving our rich cultural heritage</p>
           </div>
 
-          <div class="text-center">
+          <div class="text-center card p-8">
             <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span class="material-icons text-theme-on-primary text-2xl">diversity_3</span>
             </div>
@@ -94,7 +95,7 @@ import { CommonModule } from '@angular/common';
             <p class="text-theme-on-background">Welcoming everyone with open arms</p>
           </div>
 
-          <div class="text-center">
+          <div class="text-center card p-8">
             <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span class="material-icons text-theme-on-primary text-2xl">trending_up</span>
             </div>
@@ -107,7 +108,7 @@ import { CommonModule } from '@angular/common';
 
     <!-- Leadership Section -->
     <section class="section-padding">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-theme-on-background mb-4">Leadership Team</h2>
           <p class="text-xl text-theme-on-background max-w-2xl mx-auto">

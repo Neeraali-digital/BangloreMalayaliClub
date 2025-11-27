@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ScrollAnimationDirective],
   template: `
     <!-- Hero Section -->
     <section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent">
-      <div class="container-custom text-center text-theme-on-primary">
+      <div class="container-custom text-center text-theme-on-primary" app-scroll-animation>
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Get in touch with us for membership, events, or any queries
@@ -19,7 +20,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 
     <!-- Contact Section -->
     <section class="section-padding">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Contact Form -->
           <div>
@@ -110,7 +111,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
                 type="submit" 
                 [disabled]="contactForm.invalid || isSubmitting"
                 class="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed">
-                <span *ngIf="!isSubmitting">Send Message</span>
+                <span *ngSubmitting)="!isSubmitting">Send Message</span>
                 <span *ngIf="isSubmitting" class="flex items-center justify-center">
                   <span class="material-icons animate-spin mr-2">refresh</span>
                   Sending...
@@ -199,7 +200,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 
     <!-- FAQ Section -->
     <section class="section-padding bg-theme-background">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-bold text-theme-on-background mb-4">Frequently Asked Questions</h2>
           <p class="text-xl text-theme-on-background max-w-2xl mx-auto">

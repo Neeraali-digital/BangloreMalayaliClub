@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface CommitteeMember {
   id: number;
@@ -18,7 +19,7 @@ interface CommitteeMember {
 @Component({
   selector: 'app-executive-committee',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './executive-committee.component.html',
   styleUrls: ['./executive-committee.component.scss']
 })
@@ -168,10 +169,10 @@ export class ExecutiveCommitteeComponent implements OnInit {
 
   getPositionColor(position: string): string {
     const colors: { [key: string]: string } = {
-      'President': 'from-yellow-400 to-yellow-600',
-      'Vice President': 'from-blue-400 to-blue-600',
-      'Secretary': 'from-green-400 to-green-600',
-      'Treasurer': 'from-purple-400 to-purple-600',
+      'President': 'from-theme-primary to-theme-accent',
+      'Vice President': 'from-theme-accent to-theme-primary',
+      'Secretary': 'from-theme-warn to-yellow-600',
+      'Treasurer': 'from-blue-400 to-blue-600',
       'Joint Secretary': 'from-indigo-400 to-indigo-600',
       'Cultural Secretary': 'from-pink-400 to-pink-600',
       'Sports Secretary': 'from-orange-400 to-orange-600',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface SportsEvent {
   id: number;
@@ -22,7 +23,7 @@ interface SportsEvent {
 @Component({
   selector: 'app-sports',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './sports.component.html',
   styleUrls: ['./sports.component.scss']
 })
@@ -164,18 +165,18 @@ export class SportsComponent implements OnInit {
 
   getCategoryColor(category: string): string {
     const colors: { [key: string]: string } = {
-      'Tournament': 'bg-blue-100 text-blue-800',
-      'Training': 'bg-green-100 text-green-800',
-      'Friendly Match': 'bg-purple-100 text-purple-800'
+      'Tournament': 'bg-theme-primary/10 text-theme-primary',
+      'Training': 'bg-theme-accent/10 text-theme-accent',
+      'Friendly Match': 'bg-theme-warn/10 text-theme-warn'
     };
     return colors[category] || 'bg-gray-100 text-gray-800';
   }
 
   getStatusColor(status: string): string {
     const colors: { [key: string]: string } = {
-      'Upcoming': 'bg-green-100 text-green-800',
-      'Ongoing': 'bg-yellow-100 text-yellow-800',
-      'Completed': 'bg-gray-100 text-gray-800'
+      'Upcoming': 'bg-green-500/10 text-green-500',
+      'Ongoing': 'bg-theme-warn/10 text-theme-warn',
+      'Completed': 'bg-gray-500/10 text-gray-500'
     };
     return colors[status] || 'bg-gray-100 text-gray-800';
   }

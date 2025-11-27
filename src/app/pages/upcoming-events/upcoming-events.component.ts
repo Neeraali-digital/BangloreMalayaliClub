@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface UpcomingEvent {
   id: number;
@@ -18,7 +19,7 @@ interface UpcomingEvent {
 @Component({
   selector: 'app-upcoming-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './upcoming-events.component.html',
   styleUrls: ['./upcoming-events.component.scss']
 })

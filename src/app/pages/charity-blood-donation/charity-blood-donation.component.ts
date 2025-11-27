@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface CharityEvent {
   id: number;
@@ -20,7 +21,7 @@ interface CharityEvent {
 @Component({
   selector: 'app-charity-blood-donation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './charity-blood-donation.component.html',
   styleUrls: ['./charity-blood-donation.component.scss']
 })
@@ -145,7 +146,7 @@ export class CharityBloodDonationComponent implements OnInit {
   }
 
   getStatusColor(status: string): string {
-    return status === 'Upcoming' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800';
+    return status === 'Upcoming' ? 'bg-theme-primary/10 text-theme-primary' : 'bg-gray-500/10 text-gray-500';
   }
 
   formatCurrency(amount: number): string {

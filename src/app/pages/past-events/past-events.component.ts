@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface PastEvent {
   id: number;
@@ -18,7 +19,7 @@ interface PastEvent {
 @Component({
   selector: 'app-past-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './past-events.component.html',
   styleUrls: ['./past-events.component.scss']
 })

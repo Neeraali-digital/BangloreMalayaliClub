@@ -1,119 +1,93 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
-  <div class="container-custom text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Past Events</h1>
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Past Events</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
-      Relive the memorable moments from our previous events and activities
+      Relive the memorable moments from our previous events and activities.
     </p>
   </div>
 </section>
 
 <!-- Events Grid -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div *ngFor="let event of pastEvents" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <!-- Event Image/Icon -->
-        <div class="h-48 bg-gradient-to-br from-kerala-gold to-kerala-green flex items-center justify-center relative">
-          <span class="material-icons text-white text-6xl">{{ getEventIcon(event.category) }}</span>
-          <div class="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-3 py-1">
-            <span class="text-kerala-gold font-semibold text-sm">{{ event.category }}</span>
+      <div *ngFor="let event of pastEvents" class="card p-0 overflow-hidden" app-scroll-animation>
+        <!-- Event Image -->
+        <div class="relative h-48 group">
+          <div class="absolute inset-0 bg-gradient-to-br from-theme-accent to-theme-primary flex items-center justify-center">
+            <span class="material-icons text-white text-6xl">{{ getEventIcon(event.category) }}</span>
           </div>
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+          <span class="absolute top-4 left-4 bg-theme-warn text-white text-xs font-bold px-3 py-1 rounded-full">{{ event.category }}</span>
         </div>
 
         <!-- Event Details -->
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">{{ event.title }}</h3>
-          <p class="text-gray-600 mb-4 line-clamp-3">{{ event.description }}</p>
-
-          <!-- Event Info -->
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
-              <span>{{ event.date }}</span>
-            </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">access_time</span>
-              <span>{{ event.time }}</span>
-            </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">location_on</span>
-              <span>{{ event.location }}</span>
-            </div>
-            <div class="flex items-center text-sm text-gray-500">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">people</span>
-              <span>{{ event.attendees }} attendees</span>
-            </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div>
+            <p class="text-sm text-theme-on-background/60 font-semibold">{{ event.date }}</p>
+            <h3 class="text-xl font-bold my-2 text-theme-on-background">{{ event.title }}</h3>
+            <p class="text-theme-on-background/70 mb-4 line-clamp-3">{{ event.description }}</p>
           </div>
 
-          <!-- Rating -->
-          <div class="flex items-center mb-4">
-            <div class="flex mr-2">
-              <span *ngFor="let star of getRatingStars(event.rating)" class="material-icons text-yellow-400 text-sm">
-                {{ star }}
-              </span>
+          <div class="mt-auto">
+            <!-- Rating -->
+            <div class="flex items-center my-4">
+              <div class="flex mr-2">
+                <span *ngFor="let star of getRatingStars(event.rating)" class="material-icons text-theme-warn text-lg">
+                  {{ star }}
+                </span>
+              </div>
+              <span class="text-sm font-bold text-theme-on-background/60">{{ event.rating }}/5.0</span>
             </div>
-            <span class="text-sm text-gray-600">{{ event.rating }}/5.0</span>
+            
+            <!-- View Photos Button -->
+            <button (click)="openPhotoGallery(event)" class="w-full btn-primary">
+              View Photos
+            </button>
           </div>
-
-          <!-- View Photos Button -->
-          <button (click)="openPhotoGallery(event)"
-                  class="w-full bg-kerala-green hover:bg-kerala-green-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
-            <span class="material-icons mr-2">photo_library</span>
-            View Event Photos
-          </button>
         </div>
       </div>
     </div>
 
     <!-- Empty State -->
-    <div *ngIf="pastEvents.length === 0" class="text-center py-16">
-      <span class="material-icons text-gray-400 text-6xl mb-4">history</span>
-      <h3 class="text-xl font-semibold text-gray-600 mb-2">No past events</h3>
-      <p class="text-gray-500">Check back later for event archives</p>
+    <div *ngIf="pastEvents.length === 0" class="text-center py-16" app-scroll-animation>
+      <span class="material-icons text-theme-on-background/30 text-6xl mb-4">history</span>
+      <h3 class="text-2xl font-semibold text-theme-on-background mb-2">No Past Events</h3>
+      <p class="text-theme-on-background/60">Check back later for event archives.</p>
     </div>
   </div>
 </section>
 
 <!-- Photo Gallery Modal -->
-<div *ngIf="showPhotoGallery && selectedEvent" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-  <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-    <div class="p-6 border-b">
-      <div class="flex justify-between items-center">
-        <h3 class="text-2xl font-bold text-gray-900">{{ selectedEvent.title }}</h3>
-        <button (click)="closePhotoGallery()" class="text-gray-400 hover:text-gray-600">
-          <span class="material-icons text-3xl">close</span>
-        </button>
-      </div>
+<div *ngIf="showPhotoGallery && selectedEvent" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 modal-enter">
+  <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] flex flex-col" (click)="$event.stopPropagation()">
+    <div class="p-4 border-b flex justify-between items-center">
+      <h3 class="text-xl font-bold text-theme-on-background">{{ selectedEvent.title }}</h3>
+      <button (click)="closePhotoGallery()" class="p-2 rounded-full hover:bg-theme-background">
+        <span class="material-icons text-theme-on-background/70">close</span>
+      </button>
     </div>
-    <div class="p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div *ngFor="let photo of selectedEvent.photos" class="aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
-          <span class="material-icons text-gray-400 text-4xl">photo</span>
-          <!-- In a real app, you'd use <img src="photo" alt="Event photo"> -->
+    <div class="p-6 overflow-y-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div *ngFor="let photo of selectedEvent.photos" class="aspect-square bg-theme-background rounded-lg flex items-center justify-center overflow-hidden">
+          <span class="material-icons text-theme-on-background/30 text-4xl">photo</span>
+          <!-- In a real app, you'd use <img [src]="'/assets/images/gallery/' + photo" alt="Event photo" class="w-full h-full object-cover"> -->
         </div>
       </div>
-      <p class="text-gray-600 mt-4 text-center">Event photos will be displayed here</p>
     </div>
   </div>
 </div>
 
 <!-- Call to Action -->
-<section class="section-padding bg-kerala-gold">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-      Join Our Next Event!
-    </h2>
-    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
-      Don't miss out on our upcoming events. Stay connected and be part of our vibrant community
+<section class="section-padding bg-theme-accent">
+  <div class="container-custom text-center text-white" app-scroll-animation>
+    <h2 class="text-3xl font-bold mb-4">Join Our Next Event!</h2>
+    <p class="max-w-2xl mx-auto mb-8">
+      Don't miss out on our upcoming events. Stay connected and be part of our vibrant community.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
-        View Upcoming Events
-      </button>
-      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
-        Subscribe to Updates
-      </button>
-    </div>
+    <a routerLink="/events/upcoming" class="bg-theme-warn text-theme-on-primary font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+      View Upcoming Events
+    </a>
   </div>
 </section>

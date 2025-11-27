@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationDirective } from '../../shared/scroll-animation.directive';
 
 interface Event {
   id: number;
@@ -16,11 +17,11 @@ interface Event {
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   template: `
     <!-- Hero Section -->
     <section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent">
-      <div class="container-custom text-center text-white">
+      <div class="container-custom text-center text-white" app-scroll-animation>
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Events</h1>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Join us for exciting cultural events, festivals, and community gatherings
@@ -48,9 +49,9 @@ interface Event {
 
     <!-- Events Grid -->
     <section class="section-padding bg-theme-background">
-      <div class="container-custom">
+      <div class="container-custom" app-scroll-animation>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let event of filteredEvents" class="card overflow-hidden">
+          <div *ngFor="let event of filteredEvents" class="card overflow-hidden" app-scroll-animation>
             <div class="h-48 bg-gradient-to-br from-theme-primary to-theme-accent flex items-center justify-center">
               <span class="material-icons text-white text-6xl">{{ getEventIcon(event.category) }}</span>
             </div>
@@ -84,7 +85,7 @@ interface Event {
           </div>
         </div>
 
-        <div *ngIf="filteredEvents.length === 0" class="text-center py-16">
+        <div *ngIf="filteredEvents.length === 0" class="text-center py-16" app-scroll-animation>
           <span class="material-icons text-gray-400 text-6xl mb-4">event_busy</span>
           <h3 class="text-xl font-semibold text-theme-on-background mb-2">No events found</h3>
           <p class="text-theme-on-background">Try selecting a different category</p>
@@ -94,11 +95,11 @@ interface Event {
 
     <!-- Newsletter Section -->
     <section class="section-padding bg-theme-primary">
-      <div class="container-custom text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+      <div class="container-custom text-center text-white" app-scroll-animation>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
           Stay Updated
         </h2>
-        <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+        <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
           Subscribe to our newsletter to get notified about upcoming events and activities
         </p>
         <div class="max-w-md mx-auto flex gap-4">
