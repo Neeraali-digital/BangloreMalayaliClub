@@ -1,7 +1,7 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
-  <div class="container-custom text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Executive Committee</h1>
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Executive Committee</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
       Meet the dedicated leaders guiding the Bangalore Malayali Club towards excellence
     </p>
@@ -9,59 +9,59 @@
 </section>
 
 <!-- Committee Members Grid -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div *ngFor="let member of committeeMembers" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <div *ngFor="let member of committeeMembers" class="card p-0 overflow-hidden" app-scroll-animation>
         <!-- Member Header -->
         <div class="relative">
           <div class="h-48 bg-gradient-to-br {{ getPositionColor(member.position) }} flex items-center justify-center">
             <span class="material-icons text-white text-6xl">{{ getPositionIcon(member.position) }}</span>
           </div>
           <div class="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-4 py-2">
-            <span class="text-kerala-gold font-bold text-sm">{{ member.position }}</span>
+            <span class="text-theme-primary font-bold text-sm">{{ member.position }}</span>
           </div>
         </div>
 
         <!-- Member Details -->
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ member.name }}</h3>
-          <p class="text-kerala-gold font-semibold mb-4">{{ member.position }}</p>
-          <p class="text-gray-600 mb-6 line-clamp-3">{{ member.description }}</p>
+          <h3 class="text-2xl font-bold text-theme-on-background mb-2">{{ member.name }}</h3>
+          <p class="text-theme-primary font-semibold mb-4">{{ member.position }}</p>
+          <p class="text-theme-on-background/70 mb-6 line-clamp-3">{{ member.description }}</p>
 
           <!-- Contact Info -->
           <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">email</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">email</span>
               <span>{{ member.email }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">phone</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">phone</span>
               <span>{{ member.phone }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">work</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">work</span>
               <span>{{ member.experience }}</span>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">event</span>
               <span>Term: {{ member.termStart }} - {{ member.termEnd }}</span>
             </div>
           </div>
 
           <!-- Achievements -->
           <div class="mb-6">
-            <h4 class="font-semibold text-gray-900 mb-3">Key Achievements</h4>
+            <h4 class="font-semibold text-theme-on-background mb-3">Key Achievements</h4>
             <ul class="space-y-2">
-              <li *ngFor="let achievement of member.achievements" class="flex items-start text-sm text-gray-600">
-                <span class="material-icons text-kerala-gold mr-2 text-sm mt-0.5">check_circle</span>
+              <li *ngFor="let achievement of member.achievements" class="flex items-start text-sm text-theme-on-background/70">
+                <span class="material-icons text-theme-primary mr-2 text-sm mt-0.5">check_circle</span>
                 <span>{{ achievement }}</span>
               </li>
             </ul>
           </div>
 
           <!-- Contact Button -->
-          <button class="w-full bg-kerala-gold hover:bg-kerala-gold-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+          <button class="w-full btn-primary flex items-center justify-center">
             <span class="material-icons mr-2">contact_mail</span>
             Contact {{ member.name.split(' ')[0] }}
           </button>
@@ -74,70 +74,70 @@
 <!-- Committee Structure -->
 <section class="section-padding bg-white">
   <div class="container-custom">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Committee Structure</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-theme-on-background mb-12">Committee Structure</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="text-center p-6 bg-kerala-gold-light rounded-lg">
-        <div class="w-16 h-16 bg-kerala-gold rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-primary/20">
+        <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">account_circle</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Leadership</h3>
-        <p class="text-gray-600">President and Vice President oversee overall club operations and strategic direction</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Leadership</h3>
+        <p class="text-theme-on-background/70">President and Vice President oversee overall club operations and strategic direction</p>
       </div>
-      <div class="text-center p-6 bg-kerala-green-light rounded-lg">
-        <div class="w-16 h-16 bg-kerala-green rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-accent/20">
+        <div class="w-16 h-16 bg-theme-accent rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">edit_document</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Administration</h3>
-        <p class="text-gray-600">Secretary and Joint Secretary manage day-to-day operations and communications</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Administration</h3>
+        <p class="text-theme-on-background/70">Secretary and Joint Secretary manage day-to-day operations and communications</p>
       </div>
-      <div class="text-center p-6 bg-kerala-water-light rounded-lg">
-        <div class="w-16 h-16 bg-kerala-water rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-warn/20">
+        <div class="w-16 h-16 bg-theme-warn rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">account_balance_wallet</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Finance</h3>
-        <p class="text-gray-600">Treasurer handles financial management and ensures fiscal responsibility</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Finance</h3>
+        <p class="text-theme-on-background/70">Treasurer handles financial management and ensures fiscal responsibility</p>
       </div>
-      <div class="text-center p-6 bg-pink-100 rounded-lg">
-        <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-primary/20">
+        <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">theater_comedy</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Culture</h3>
-        <p class="text-gray-600">Cultural Secretary preserves and promotes Malayali traditions and arts</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Culture</h3>
+        <p class="text-theme-on-background/70">Cultural Secretary preserves and promotes Malayali traditions and arts</p>
       </div>
-      <div class="text-center p-6 bg-orange-100 rounded-lg">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-accent/20">
+        <div class="w-16 h-16 bg-theme-accent rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">sports</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Sports</h3>
-        <p class="text-gray-600">Sports Secretary organizes athletic events and promotes physical fitness</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Sports</h3>
+        <p class="text-theme-on-background/70">Sports Secretary organizes athletic events and promotes physical fitness</p>
       </div>
-      <div class="text-center p-6 bg-red-100 rounded-lg">
-        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-warn/20">
+        <div class="w-16 h-16 bg-theme-warn rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">volunteer_activism</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Welfare</h3>
-        <p class="text-gray-600">Welfare Secretary coordinates charitable activities and community support</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Welfare</h3>
+        <p class="text-theme-on-background/70">Welfare Secretary coordinates charitable activities and community support</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
-<section class="section-padding bg-kerala-gold">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+<section class="section-padding bg-theme-accent">
+  <div class="container-custom text-center text-white" app-scroll-animation>
+    <h2 class="text-3xl font-bold mb-4">
       Get Involved
     </h2>
-    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+    <p class="max-w-2xl mx-auto mb-8">
       Interested in contributing to the community? Reach out to our committee members to learn about volunteer opportunities.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      <a routerLink="/contact" class="bg-theme-warn text-theme-on-primary font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
         Contact Committee
-      </button>
-      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      </a>
+      <a routerLink="/membership/form" class="btn-secondary">
         Join as Volunteer
-      </button>
+      </a>
     </div>
   </div>
 </section>

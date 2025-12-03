@@ -1,7 +1,7 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
-  <div class="container-custom text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Sub Committees</h1>
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Sub Committees</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
       Specialized committees working together to serve our community in various domains
     </p>
@@ -9,12 +9,12 @@
 </section>
 
 <!-- Sub Committees Grid -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div *ngFor="let committee of subCommittees" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <div *ngFor="let committee of subCommittees" class="card p-0 overflow-hidden" app-scroll-animation>
         <!-- Committee Header -->
-        <div class="bg-gradient-to-br from-kerala-gold to-kerala-green p-6 text-white">
+        <div class="bg-gradient-to-br from-theme-primary to-theme-accent p-6 text-white">
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center">
               <span class="material-icons text-3xl mr-3">{{ getFocusAreaIcon(committee.focusArea) }}</span>
@@ -26,25 +26,25 @@
               </div>
             </div>
           </div>
-          <p class="text-kerala-green-light">{{ committee.description }}</p>
+          <p class="text-white/90">{{ committee.description }}</p>
         </div>
 
         <!-- Committee Details -->
         <div class="p-6">
           <!-- Chairperson -->
           <div class="mb-6">
-            <h4 class="font-semibold text-gray-900 mb-2">Chairperson</h4>
+            <h4 class="font-semibold text-theme-on-background mb-2">Chairperson</h4>
             <div class="flex items-center">
-              <span class="material-icons text-kerala-gold mr-3">person</span>
-              <span class="text-gray-700 font-medium">{{ committee.chairperson }}</span>
+              <span class="material-icons text-theme-primary mr-3">person</span>
+              <span class="text-theme-on-background/80 font-medium">{{ committee.chairperson }}</span>
             </div>
           </div>
 
           <!-- Members -->
           <div class="mb-6">
-            <h4 class="font-semibold text-gray-900 mb-2">Committee Members</h4>
+            <h4 class="font-semibold text-theme-on-background mb-2">Committee Members</h4>
             <div class="flex flex-wrap gap-2">
-              <span *ngFor="let member of committee.members" class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+              <span *ngFor="let member of committee.members" class="bg-theme-background text-theme-on-background px-3 py-1 rounded-full text-sm">
                 {{ member }}
               </span>
             </div>
@@ -52,19 +52,19 @@
 
           <!-- Meeting Schedule -->
           <div class="mb-6">
-            <h4 class="font-semibold text-gray-900 mb-2">Meeting Schedule</h4>
-            <div class="flex items-center text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
+            <h4 class="font-semibold text-theme-on-background mb-2">Meeting Schedule</h4>
+            <div class="flex items-center text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">event</span>
               <span>{{ committee.meetingSchedule }}</span>
             </div>
           </div>
 
           <!-- Achievements -->
           <div class="mb-6">
-            <h4 class="font-semibold text-gray-900 mb-3">Key Achievements</h4>
+            <h4 class="font-semibold text-theme-on-background mb-3">Key Achievements</h4>
             <ul class="space-y-2">
-              <li *ngFor="let achievement of committee.achievements" class="flex items-start text-sm text-gray-600">
-                <span class="material-icons text-kerala-gold mr-2 text-sm mt-0.5">check_circle</span>
+              <li *ngFor="let achievement of committee.achievements" class="flex items-start text-sm text-theme-on-background/70">
+                <span class="material-icons text-theme-primary mr-2 text-sm mt-0.5">check_circle</span>
                 <span>{{ achievement }}</span>
               </li>
             </ul>
@@ -72,7 +72,7 @@
 
           <!-- Contact -->
           <div class="border-t pt-6">
-            <button class="w-full bg-kerala-gold hover:bg-kerala-gold-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+            <button class="w-full btn-primary flex items-center justify-center">
               <span class="material-icons mr-2">email</span>
               Contact Committee
             </button>
@@ -86,49 +86,49 @@
 <!-- Committee Structure Info -->
 <section class="section-padding bg-white">
   <div class="container-custom">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">How Sub Committees Work</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-theme-on-background mb-12">How Sub Committees Work</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="text-center">
-        <div class="w-16 h-16 bg-kerala-gold rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">groups</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Specialized Focus</h3>
-        <p class="text-gray-600">Each committee specializes in specific areas to ensure expertise and effective execution</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Specialized Focus</h3>
+        <p class="text-theme-on-background/70">Each committee specializes in specific areas to ensure expertise and effective execution</p>
       </div>
       <div class="text-center">
-        <div class="w-16 h-16 bg-kerala-green rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="w-16 h-16 bg-theme-accent rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">schedule</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Regular Meetings</h3>
-        <p class="text-gray-600">Committees meet regularly to plan, execute, and review their activities and initiatives</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Regular Meetings</h3>
+        <p class="text-theme-on-background/70">Committees meet regularly to plan, execute, and review their activities and initiatives</p>
       </div>
       <div class="text-center">
-        <div class="w-16 h-16 bg-kerala-water rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="w-16 h-16 bg-theme-warn rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">trending_up</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Collaborative Impact</h3>
-        <p class="text-gray-600">Working together with the executive committee to achieve greater community impact</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Collaborative Impact</h3>
+        <p class="text-theme-on-background/70">Working together with the executive committee to achieve greater community impact</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
-<section class="section-padding bg-kerala-gold">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+<section class="section-padding bg-theme-accent">
+  <div class="container-custom text-center text-white" app-scroll-animation>
+    <h2 class="text-3xl font-bold mb-4">
       Join a Sub Committee
     </h2>
-    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+    <p class="max-w-2xl mx-auto mb-8">
       Interested in contributing to specific areas? Get involved with our sub committees and make a difference in our community.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      <a routerLink="/contact" class="bg-theme-warn text-theme-on-primary font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
         Express Interest
-      </button>
-      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      </a>
+      <a routerLink="/about" class="btn-secondary">
         Learn More
-      </button>
+      </a>
     </div>
   </div>
 </section>

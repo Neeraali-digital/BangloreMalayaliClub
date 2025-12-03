@@ -1,7 +1,7 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
-  <div class="container-custom text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Past Committees</h1>
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Past Committees</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
       Celebrating the legacy and contributions of our previous committee members
     </p>
@@ -14,20 +14,20 @@
     <div class="flex flex-wrap justify-center gap-4">
       <button
         (click)="filterByYear('All')"
-        [class.bg-kerala-gold]="selectedYear === 'All'"
+        [class.bg-theme-primary]="selectedYear === 'All'"
         [class.text-white]="selectedYear === 'All'"
-        [class.bg-gray-200]="selectedYear !== 'All'"
-        [class.text-gray-700]="selectedYear !== 'All'"
+        [class.bg-theme-background]="selectedYear !== 'All'"
+        [class.text-theme-on-background]="selectedYear !== 'All'"
         class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
         All Years
       </button>
       <button
         *ngFor="let committee of pastCommittees"
         (click)="filterByYear(committee.year)"
-        [class.bg-kerala-gold]="selectedYear === committee.year"
+        [class.bg-theme-primary]="selectedYear === committee.year"
         [class.text-white]="selectedYear === committee.year"
-        [class.bg-gray-200]="selectedYear !== committee.year"
-        [class.text-gray-700]="selectedYear !== committee.year"
+        [class.bg-theme-background]="selectedYear !== committee.year"
+        [class.text-theme-on-background]="selectedYear !== committee.year"
         class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
         {{ committee.year }}
       </button>
@@ -36,23 +36,23 @@
 </section>
 
 <!-- Past Committees -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
-    <div *ngFor="let committee of filteredCommittees" class="mb-16">
+    <div *ngFor="let committee of filteredCommittees" class="mb-16" app-scroll-animation>
       <!-- Committee Year Header -->
       <div class="text-center mb-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{{ committee.year }}</h2>
-        <div class="flex justify-center items-center space-x-8 text-gray-600">
+        <h2 class="text-3xl md:text-4xl font-bold text-theme-on-background mb-4">{{ committee.year }}</h2>
+        <div class="flex justify-center items-center space-x-8 text-theme-on-background/80">
           <div class="flex items-center">
-            <span class="material-icons text-kerala-gold mr-2">account_circle</span>
+            <span class="material-icons text-theme-primary mr-2">account_circle</span>
             <span><strong>President:</strong> {{ committee.president }}</span>
           </div>
           <div class="flex items-center">
-            <span class="material-icons text-kerala-gold mr-2">edit_document</span>
+            <span class="material-icons text-theme-primary mr-2">edit_document</span>
             <span><strong>Secretary:</strong> {{ committee.secretary }}</span>
           </div>
           <div class="flex items-center">
-            <span class="material-icons text-kerala-gold mr-2">account_balance_wallet</span>
+            <span class="material-icons text-theme-primary mr-2">account_balance_wallet</span>
             <span><strong>Treasurer:</strong> {{ committee.treasurer }}</span>
           </div>
         </div>
@@ -60,35 +60,35 @@
 
       <!-- Committee Members Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <div *ngFor="let member of committee.members" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div *ngFor="let member of committee.members" class="card p-0 overflow-hidden">
           <!-- Member Header -->
           <div class="relative">
             <div class="h-32 bg-gradient-to-br {{ getPositionColor(member.position) }} flex items-center justify-center">
               <span class="material-icons text-white text-4xl">{{ getPositionIcon(member.position) }}</span>
             </div>
             <div class="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-3 py-1">
-              <span class="text-kerala-gold font-bold text-sm">{{ member.position }}</span>
+              <span class="text-theme-primary font-bold text-sm">{{ member.position }}</span>
             </div>
           </div>
 
           <!-- Member Details -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ member.name }}</h3>
-            <p class="text-kerala-gold font-semibold mb-4">{{ member.term }}</p>
+            <h3 class="text-xl font-bold text-theme-on-background mb-2">{{ member.name }}</h3>
+            <p class="text-theme-primary font-semibold mb-4">{{ member.term }}</p>
 
             <!-- Current Role -->
             <div *ngIf="member.currentRole" class="mb-4">
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+              <span class="bg-theme-warn/20 text-theme-warn px-3 py-1 rounded-full text-sm font-medium">
                 Current: {{ member.currentRole }}
               </span>
             </div>
 
             <!-- Achievements -->
             <div class="mb-6">
-              <h4 class="font-semibold text-gray-900 mb-3">Key Achievements</h4>
+              <h4 class="font-semibold text-theme-on-background mb-3">Key Achievements</h4>
               <ul class="space-y-2">
-                <li *ngFor="let achievement of member.achievements" class="flex items-start text-sm text-gray-600">
-                  <span class="material-icons text-kerala-gold mr-2 text-sm mt-0.5">check_circle</span>
+                <li *ngFor="let achievement of member.achievements" class="flex items-start text-sm text-theme-on-background/70">
+                  <span class="material-icons text-theme-primary mr-2 text-sm mt-0.5">check_circle</span>
                   <span>{{ achievement }}</span>
                 </li>
               </ul>
@@ -99,32 +99,32 @@
 
       <!-- Key Highlights -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Key Highlights of {{ committee.year }}</h3>
+        <h3 class="text-2xl font-bold text-theme-on-background mb-6 text-center">Key Highlights of {{ committee.year }}</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div *ngFor="let highlight of committee.keyHighlights" class="flex items-start">
-            <span class="material-icons text-kerala-gold mr-3 text-xl mt-1">star</span>
-            <span class="text-gray-700">{{ highlight }}</span>
+            <span class="material-icons text-theme-primary mr-3 text-xl mt-1">star</span>
+            <span class="text-theme-on-background/80">{{ highlight }}</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Empty State -->
-    <div *ngIf="filteredCommittees.length === 0" class="text-center py-16">
-      <span class="material-icons text-gray-400 text-6xl mb-4">history</span>
-      <h3 class="text-xl font-semibold text-gray-600 mb-2">No committees found</h3>
-      <p class="text-gray-500">Try selecting a different year</p>
+    <div *ngIf="filteredCommittees.length === 0" class="text-center py-16" app-scroll-animation>
+      <span class="material-icons text-theme-on-background/30 text-6xl mb-4">history</span>
+      <h3 class="text-2xl font-semibold text-theme-on-background mb-2">No committees found</h3>
+      <p class="text-theme-on-background/60">Try selecting a different year</p>
     </div>
   </div>
 </section>
 
 <!-- Legacy Section -->
-<section class="section-padding bg-kerala-gold">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+<section class="section-padding bg-theme-accent">
+  <div class="container-custom text-center text-white" app-scroll-animation>
+    <h2 class="text-3xl font-bold mb-4">
       Building Our Legacy
     </h2>
-    <p class="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
+    <p class="max-w-3xl mx-auto mb-8">
       Our past committees have laid a strong foundation for the Bangalore Malayali Club.
       Their dedication and vision continue to inspire our current and future generations.
     </p>

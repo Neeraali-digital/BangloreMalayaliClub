@@ -1,7 +1,7 @@
 <!-- Hero Section -->
-<section class="pt-24 pb-16 bg-gradient-to-r from-kerala-green to-kerala-water">
-  <div class="container-custom text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Well Wishers & Supporters</h1>
+<section class="pt-24 pb-16 bg-gradient-to-r from-theme-primary to-theme-accent text-white">
+  <div class="container-custom text-center" app-scroll-animation>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Well Wishers & Supporters</h1>
     <p class="text-xl opacity-90 max-w-2xl mx-auto">
       Grateful for the generous support and partnership of our valued well wishers and supporters
     </p>
@@ -17,47 +17,47 @@
         <span class="font-semibold text-gray-700 mr-4">Category:</span>
         <button
           (click)="filterSupporters('All', selectedType)"
-          [class.bg-kerala-gold]="selectedCategory === 'All'"
+          [class.bg-theme-primary]="selectedCategory === 'All'"
           [class.text-white]="selectedCategory === 'All'"
-          [class.bg-gray-200]="selectedCategory !== 'All'"
-          [class.text-gray-700]="selectedCategory !== 'All'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedCategory !== 'All'"
+          [class.text-theme-on-background]="selectedCategory !== 'All'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           All
         </button>
         <button
           (click)="filterSupporters('Patron', selectedType)"
-          [class.bg-purple-500]="selectedCategory === 'Patron'"
+          [class.bg-theme-primary]="selectedCategory === 'Patron'"
           [class.text-white]="selectedCategory === 'Patron'"
-          [class.bg-gray-200]="selectedCategory !== 'Patron'"
-          [class.text-gray-700]="selectedCategory !== 'Patron'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedCategory !== 'Patron'"
+          [class.text-theme-on-background]="selectedCategory !== 'Patron'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Patron
         </button>
         <button
           (click)="filterSupporters('Gold', selectedType)"
-          [class.bg-yellow-500]="selectedCategory === 'Gold'"
+          [class.bg-theme-primary]="selectedCategory === 'Gold'"
           [class.text-white]="selectedCategory === 'Gold'"
-          [class.bg-gray-200]="selectedCategory !== 'Gold'"
-          [class.text-gray-700]="selectedCategory !== 'Gold'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedCategory !== 'Gold'"
+          [class.text-theme-on-background]="selectedCategory !== 'Gold'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Gold
         </button>
         <button
           (click)="filterSupporters('Silver', selectedType)"
-          [class.bg-gray-400]="selectedCategory === 'Silver'"
+          [class.bg-theme-primary]="selectedCategory === 'Silver'"
           [class.text-white]="selectedCategory === 'Silver'"
-          [class.bg-gray-200]="selectedCategory !== 'Silver'"
-          [class.text-gray-700]="selectedCategory !== 'Silver'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedCategory !== 'Silver'"
+          [class.text-theme-on-background]="selectedCategory !== 'Silver'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Silver
         </button>
         <button
           (click)="filterSupporters('Bronze', selectedType)"
-          [class.bg-orange-500]="selectedCategory === 'Bronze'"
+          [class.bg-theme-primary]="selectedCategory === 'Bronze'"
           [class.text-white]="selectedCategory === 'Bronze'"
-          [class.bg-gray-200]="selectedCategory !== 'Bronze'"
-          [class.text-gray-700]="selectedCategory !== 'Bronze'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedCategory !== 'Bronze'"
+          [class.text-theme-on-background]="selectedCategory !== 'Bronze'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Bronze
         </button>
       </div>
@@ -67,38 +67,38 @@
         <span class="font-semibold text-gray-700 mr-4">Type:</span>
         <button
           (click)="filterSupporters(selectedCategory, 'All')"
-          [class.bg-kerala-gold]="selectedType === 'All'"
+          [class.bg-theme-primary]="selectedType === 'All'"
           [class.text-white]="selectedType === 'All'"
-          [class.bg-gray-200]="selectedType !== 'All'"
-          [class.text-gray-700]="selectedType !== 'All'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedType !== 'All'"
+          [class.text-theme-on-background]="selectedType !== 'All'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           All
         </button>
         <button
           (click)="filterSupporters(selectedCategory, 'Individual')"
-          [class.bg-kerala-gold]="selectedType === 'Individual'"
+          [class.bg-theme-primary]="selectedType === 'Individual'"
           [class.text-white]="selectedType === 'Individual'"
-          [class.bg-gray-200]="selectedType !== 'Individual'"
-          [class.text-gray-700]="selectedType !== 'Individual'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedType !== 'Individual'"
+          [class.text-theme-on-background]="selectedType !== 'Individual'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Individual
         </button>
         <button
           (click)="filterSupporters(selectedCategory, 'Business')"
-          [class.bg-kerala-gold]="selectedType === 'Business'"
+          [class.bg-theme-primary]="selectedType === 'Business'"
           [class.text-white]="selectedType === 'Business'"
-          [class.bg-gray-200]="selectedType !== 'Business'"
-          [class.text-gray-700]="selectedType !== 'Business'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedType !== 'Business'"
+          [class.text-theme-on-background]="selectedType !== 'Business'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Business
         </button>
         <button
           (click)="filterSupporters(selectedCategory, 'Organization')"
-          [class.bg-kerala-gold]="selectedType === 'Organization'"
+          [class.bg-theme-primary]="selectedType === 'Organization'"
           [class.text-white]="selectedType === 'Organization'"
-          [class.bg-gray-200]="selectedType !== 'Organization'"
-          [class.text-gray-700]="selectedType !== 'Organization'"
-          class="px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
+          [class.bg-theme-background]="selectedType !== 'Organization'"
+          [class.text-theme-on-background]="selectedType !== 'Organization'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md">
           Organization
         </button>
       </div>
@@ -107,18 +107,18 @@
 </section>
 
 <!-- Supporters Grid -->
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-theme-background">
   <div class="container-custom">
     <!-- Results Count -->
     <div class="mb-8">
-      <p class="text-gray-600">
+      <p class="text-theme-on-background/60">
         Showing {{ filteredSupporters.length }} of {{ supporters.length }} supporters
       </p>
     </div>
 
     <!-- Supporters Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div *ngFor="let supporter of filteredSupporters" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let supporter of filteredSupporters" class="card p-0 overflow-hidden" app-scroll-animation>
         <!-- Supporter Header -->
         <div class="relative">
           <div class="h-48 bg-gradient-to-br {{ getCategoryColor(supporter.category) }} flex items-center justify-center">
@@ -139,31 +139,31 @@
 
         <!-- Supporter Details -->
         <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-2">{{ supporter.name }}</h3>
-          <p class="text-gray-600 mb-4 line-clamp-3">{{ supporter.description }}</p>
+          <h3 class="text-xl font-bold text-theme-on-background mb-2">{{ supporter.name }}</h3>
+          <p class="text-theme-on-background/70 mb-4 line-clamp-3">{{ supporter.description }}</p>
 
           <!-- Contact Info -->
           <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">email</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">email</span>
               <span>{{ supporter.contact }}</span>
             </div>
-            <div *ngIf="supporter.website" class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">language</span>
-              <a [href]="supporter.website" target="_blank" class="text-kerala-gold hover:underline">{{ supporter.website }}</a>
+            <div *ngIf="supporter.website" class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">language</span>
+              <a [href]="supporter.website" target="_blank" class="text-theme-primary hover:underline">{{ supporter.website }}</a>
             </div>
-            <div class="flex items-center text-sm text-gray-600">
-              <span class="material-icons text-kerala-gold mr-3 text-lg">event</span>
+            <div class="flex items-center text-sm text-theme-on-background/80">
+              <span class="material-icons text-theme-primary mr-3 text-lg">event</span>
               <span>Supporting since {{ supporter.supportSince }}</span>
             </div>
           </div>
 
           <!-- Contributions -->
           <div class="mb-6">
-            <h4 class="font-semibold text-gray-900 mb-3">Key Contributions</h4>
+            <h4 class="font-semibold text-theme-on-background mb-3">Key Contributions</h4>
             <ul class="space-y-2">
-              <li *ngFor="let contribution of supporter.contributions" class="flex items-start text-sm text-gray-600">
-                <span class="material-icons text-kerala-gold mr-2 text-sm mt-0.5">check_circle</span>
+              <li *ngFor="let contribution of supporter.contributions" class="flex items-start text-sm text-theme-on-background/70">
+                <span class="material-icons text-theme-primary mr-2 text-sm mt-0.5">check_circle</span>
                 <span>{{ contribution }}</span>
               </li>
             </ul>
@@ -171,11 +171,11 @@
 
           <!-- Action Buttons -->
           <div class="flex gap-2">
-            <button class="flex-1 bg-kerala-gold hover:bg-kerala-gold-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm flex items-center justify-center">
+            <button class="flex-1 btn-primary text-sm flex items-center justify-center">
               <span class="material-icons mr-1 text-sm">contact_mail</span>
               Contact
             </button>
-            <button *ngIf="supporter.website" class="flex-1 border border-kerala-gold text-kerala-gold hover:bg-kerala-gold hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm flex items-center justify-center">
+            <button *ngIf="supporter.website" class="flex-1 btn-secondary text-sm flex items-center justify-center">
               <span class="material-icons mr-1 text-sm">open_in_new</span>
               Visit
             </button>
@@ -185,10 +185,10 @@
     </div>
 
     <!-- Empty State -->
-    <div *ngIf="filteredSupporters.length === 0" class="text-center py-16">
-      <span class="material-icons text-gray-400 text-6xl mb-4">groups</span>
-      <h3 class="text-xl font-semibold text-gray-600 mb-2">No supporters found</h3>
-      <p class="text-gray-500">Try adjusting your filter criteria</p>
+    <div *ngIf="filteredSupporters.length === 0" class="text-center py-16" app-scroll-animation>
+      <span class="material-icons text-theme-on-background/30 text-6xl mb-4">groups</span>
+      <h3 class="text-2xl font-semibold text-theme-on-background mb-2">No supporters found</h3>
+      <p class="text-theme-on-background/60">Try adjusting your filter criteria</p>
     </div>
   </div>
 </section>
@@ -196,56 +196,56 @@
 <!-- Support Categories Info -->
 <section class="section-padding bg-white">
   <div class="container-custom">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Support Categories</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-theme-on-background mb-12">Support Categories</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="text-center p-6 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg">
-        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-primary/20">
+        <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">star</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Patron</h3>
-        <p class="text-gray-600">Highest level of support with major contributions to multiple initiatives</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Patron</h3>
+        <p class="text-theme-on-background/70">Highest level of support with major contributions to multiple initiatives</p>
       </div>
-      <div class="text-center p-6 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg">
-        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-warn/20">
+        <div class="w-16 h-16 bg-theme-warn rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">workspace_premium</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Gold</h3>
-        <p class="text-gray-600">Significant support for key programs and community development</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Gold</h3>
+        <p class="text-theme-on-background/70">Significant support for key programs and community development</p>
       </div>
-      <div class="text-center p-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg">
-        <div class="w-16 h-16 bg-gray-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-accent/20">
+        <div class="w-16 h-16 bg-theme-accent rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">military_tech</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Silver</h3>
-        <p class="text-gray-600">Regular support for specific programs and initiatives</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Silver</h3>
+        <p class="text-theme-on-background/70">Regular support for specific programs and initiatives</p>
       </div>
-      <div class="text-center p-6 bg-gradient-to-br from-orange-100 to-orange-200 rounded-lg">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div class="text-center p-6 bg-theme-background rounded-lg border border-theme-primary/20">
+        <div class="w-16 h-16 bg-theme-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-2xl">emoji_events</span>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Bronze</h3>
-        <p class="text-gray-600">Entry-level support contributing to community activities</p>
+        <h3 class="text-xl font-bold text-theme-on-background mb-2">Bronze</h3>
+        <p class="text-theme-on-background/70">Entry-level support contributing to community activities</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
-<section class="section-padding bg-kerala-gold">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+<section class="section-padding bg-theme-accent">
+  <div class="container-custom text-center text-white" app-scroll-animation>
+    <h2 class="text-3xl font-bold mb-4">
       Become a Supporter
     </h2>
-    <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+    <p class="max-w-2xl mx-auto mb-8">
       Join our community of generous supporters and help us build a stronger, more vibrant Malayali community in Bangalore.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-kerala-gold hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      <a routerLink="/contact" class="bg-theme-warn text-theme-on-primary font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
         Partner With Us
-      </button>
-      <button class="border-2 border-white text-white hover:bg-white hover:text-kerala-gold font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+      </a>
+      <a routerLink="/about" class="btn-secondary">
         Learn More
-      </button>
+      </a>
     </div>
   </div>
 </section>

@@ -49,7 +49,7 @@ import { RouterModule } from '@angular/router';
               <div class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                 <a routerLink="/events/upcoming" class="block px-4 py-2 text-theme-on-background hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300">UP COMING EVENTS</a>
                 <a routerLink="/events/past" class="block px-4 py-2 text-theme-on-background hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300">PAST EVENTS</a>
-                <a routerLink="/events/charity" class="block px-4 py-2 text-theme-on-background hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300">CHARITY & BLOOD DONATION</a>
+                <a routerLink="/events/charity-blood-donation" class="block px-4 py-2 text-theme-on-background hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300">CHARITY & BLOOD DONATION</a>
                 <a routerLink="/events/sports" class="block px-4 py-2 text-theme-on-background hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300">SPORTS</a>
               </div>
             </div>
@@ -140,7 +140,7 @@ import { RouterModule } from '@angular/router';
               <div class="ml-4 space-y-1" [class.hidden]="!mobileDropdowns['events']">
                 <a routerLink="/events/upcoming" class="block px-4 py-2 text-gray-600 hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300" (click)="closeMobileMenu()">UP COMING EVENTS</a>
                 <a routerLink="/events/past" class="block px-4 py-2 text-gray-600 hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300" (click)="closeMobileMenu()">PAST EVENTS</a>
-                <a routerLink="/events/charity" class="block px-4 py-2 text-gray-600 hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300" (click)="closeMobileMenu()">CHARITY & BLOOD DONATION</a>
+                <a routerLink="/events/charity-blood-donation" class="block px-4 py-2 text-gray-600 hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300" (click)="closeMobileMenu()">CHARITY & BLOOD DONATION</a>
                 <a routerLink="/events/sports" class="block px-4 py-2 text-gray-600 hover:bg-theme-primary hover:text-theme-on-primary transition-colors duration-300" (click)="closeMobileMenu()">SPORTS</a>
               </div>
             </div>

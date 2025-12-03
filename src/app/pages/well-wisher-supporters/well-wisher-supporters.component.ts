@@ -179,10 +179,10 @@ export class WellWisherSupportersComponent implements OnInit {
 
   getCategoryColor(category: string): string {
     const colors: { [key: string]: string } = {
-      'Patron': 'from-purple-500 to-purple-700',
-      'Gold': 'from-yellow-400 to-yellow-600',
-      'Silver': 'from-gray-300 to-gray-500',
-      'Bronze': 'from-orange-400 to-orange-600'
+      'Patron': 'from-theme-primary to-theme-accent',
+      'Gold': 'from-theme-warn to-orange-600',
+      'Silver': 'from-theme-accent to-blue-600',
+      'Bronze': 'from-theme-primary to-red-700'
     };
     return colors[category] || 'from-gray-400 to-gray-600';
   }
